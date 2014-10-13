@@ -125,9 +125,10 @@ Website: http://www.seantheme.com/color-admin-v1.3/
 /* 1.1 Reset and overrides */
 
 body {
-    background: #d9e0e7;
+    background: url(../img/icons/index-bg.png) repeat-x;
+    background-size: 1px 100%;
     font-size: 12px;
-    font-family: 'Open Sans', "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: 'Microsoft Yahei', 'Open Sans', "Helvetica Neue",Helvetica,Arial,sans-serif;
     color: #707478;
 }
 h1, h2, h3, h4, h5, h6{
@@ -299,10 +300,10 @@ label {
     color: #a8acb1;
 }
 .navbar-brand {
-    margin-right: 10px;
-    padding: 12px 20px;
+    margin-right: 40px;
+    padding: 12px 0 12px 20px;
     height: 54px;
-    width: 220px;
+    width: 120px;
     font-weight: 100;
     font-size: 18px;
     line-height: 30px;
@@ -451,12 +452,12 @@ label {
     left: 0;
     top: 0;
     bottom: 0;
-    padding-top: 54px;
-    background: #2d353c;
+    /*padding-top: 54px;*/
+    background: url(../img/icons/sidebar-bg.png);
     z-index: 10;
 }
 .sidebar-bg {
-    background: #2d353c;
+    background: url(../img/icons/sidebar-bg.png);
     position: fixed;
     top: 0;
     left: 0;
@@ -585,10 +586,11 @@ label {
 }
 .sidebar .nav > li.nav-header {
     margin: 0;
-    padding: 10px 20px;
+    padding: 17px 20px;
     line-height: 20px;
     font-size: 11px;
     color: #6d7983;
+    background-color: #fff;
 }
 .sidebar .nav > li.nav-header a {
     padding: 0;
@@ -1812,7 +1814,7 @@ legend {
 .panel-info > .panel-heading {
     color: #fff;
 }
-.panel-inverse > .panel-heading { background: #242a30; }
+/*.panel-inverse > .panel-heading { background: #242a30; }*/
 .panel-success > .panel-heading { background: #008a8a; }
 .panel-warning > .panel-heading { background: #c47d15; }
 .panel-danger > .panel-heading { background: #cc4946; }

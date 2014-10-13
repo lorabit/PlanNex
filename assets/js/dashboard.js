@@ -123,7 +123,8 @@ var handleInteractiveChart = function () {
                     label: "Page Views", 
                     color: blue,
                     lines: { show: true, fill:false, lineWidth: 2 },
-                    points: { show: true, radius: 3, fillColor: '#fff' },
+                    // points: { show: true, radius: 3, fillColor: '#fff' },
+                    points: { show: true, radius: 3 },
                     shadowSize: 0
                 }, {
                     data: data2,
@@ -142,7 +143,7 @@ var handleInteractiveChart = function () {
                     clickable: true,
                     tickColor: "#ddd",
                     borderWidth: 1,
-                    backgroundColor: '#fff',
+                    // backgroundColor: '#fff',
                     borderColor: '#ddd'
                 },
                 legend: {
@@ -304,7 +305,7 @@ var Dashboard = function () {
     return {
         //main function
         init: function () {
-            handleDashboardGritterNotification();
+            // handleDashboardGritterNotification();
             handleInteractiveChart();
             handleDashboardSparkline();
             handleDonutChart();

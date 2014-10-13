@@ -1,0 +1,25 @@
+
+.navbar-center{
+	position: absolute;
+	left: 50%;
+	margin-left: -60px;
+}
+.navbar-right-seperate{
+	right: 220px;
+}
+.navbar-filters > li > a{
+	color: #6f5f5c!important;
+	padding: 11px 15px;
+}
+.navbar-filters > li > a .fa{
+	vertical-align: middle;
+}
+.navbar-filters .nav-filter-text{
+	vertical-align: middle;
+	margin-left: 12px;
+	margin-right: 20px; 
+}
+.panel{
+	background-color: transparent;
+	border: 2px solid #c3c6cb; 
+}
