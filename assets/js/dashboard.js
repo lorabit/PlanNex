@@ -122,7 +122,7 @@ var handleInteractiveChart = function () {
                     data: data1, 
                     label: "Page Views", 
                     color: blue,
-                    lines: { show: true, fill:false, lineWidth: 2 },
+                    lines: { show: true, fill:false, lineWidth: 4 },
                     // points: { show: true, radius: 3, fillColor: '#fff' },
                     points: { show: true, radius: 3 },
                     shadowSize: 0
@@ -130,7 +130,7 @@ var handleInteractiveChart = function () {
                     data: data2,
                     label: 'Visitors',
                     color: green,
-                    lines: { show: true, fill:false, lineWidth: 2 },
+                    lines: { show: true, fill:false, lineWidth: 4 },
                     points: { show: true, radius: 3, fillColor: '#fff' },
                     shadowSize: 0
                 }

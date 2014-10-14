@@ -11,6 +11,9 @@
 	color: #6f5f5c!important;
 	padding: 11px 15px;
 }
+.navbar-filters > li > a:hover{
+	color: #e8ac6c!important;
+}
 .navbar-filters > li > a .fa{
 	vertical-align: middle;
 }
