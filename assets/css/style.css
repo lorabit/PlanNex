@@ -175,11 +175,17 @@ label {
 }
 .page-sidebar-fixed .sidebar {
     position: fixed;
-    height: 54px;
 }
 .page-with-right-sidebar .content {
     margin-left: 0;
     margin-right: 220px;
+}
+.page-sidebar-fixed-off .sidebar{
+    height: 54px;
+}
+.page-sidebar-fixed-off .content{
+    margin-left: 0;
+    margin-right: 0;
 }
 .page-with-right-sidebar .footer {
     margin-left: 25px;

@@ -15,10 +15,10 @@ var blue		= '#348fe2',
     greenLight	= '#33bdbd',
     greenDark	= '#008a8a',
     orange		= '#f59c1a',
-    orangeLight	= '#f7b048',
+    orangeLight	= '#e8ac6c',
     orangeDark	= '#c47d15',
     dark		= '#2d353c',
-    grey		= '#b6c2c9',
+    grey		= '#c3c6cb',
     purple		= '#727cb6',
     purpleLight	= '#8e96c5',
     purpleDark	= '#5b6392',
@@ -121,7 +121,7 @@ var handleInteractiveChart = function () {
                 {
                     data: data1, 
                     label: "Page Views", 
-                    color: blue,
+                    color: "#fff",
                     lines: { show: true, fill:false, lineWidth: 4 },
                     // points: { show: true, radius: 3, fillColor: '#fff' },
                     points: { show: true, radius: 3 },
@@ -129,22 +129,28 @@ var handleInteractiveChart = function () {
                 }, {
                     data: data2,
                     label: 'Visitors',
-                    color: green,
+                    color: orangeLight,
                     lines: { show: true, fill:false, lineWidth: 4 },
                     points: { show: true, radius: 3, fillColor: '#fff' },
                     shadowSize: 0
                 }
             ], 
             {
-                xaxis: {  ticks:xLabel, tickDecimals: 0, tickColor: '#ddd' },
-                yaxis: {  ticks: 10, tickColor: '#ddd', min: 0, max: 200 },
-                grid: { 
+                xaxis: {  ticks:xLabel, tickDecimals: 0, tickColor: 'transparent' },
+                yaxis: {  ticks: 10, tickColor: '#7c6f71', min: 0, max: 160 },
+                grid: {
                     hoverable: true, 
                     clickable: true,
                     tickColor: "#ddd",
-                    borderWidth: 1,
+                    borderWidth: {
+                        top: 1,
+                        right: 0,
+                        bottom: 1,
+                        left: 0
+                    },
                     // backgroundColor: '#fff',
-                    borderColor: '#ddd'
+                    // show: false,
+                    borderColor: '#7c6f71'
                 },
                 legend: {
                     labelBoxBorderColor: '#ddd',
@@ -300,6 +306,12 @@ var handleDashboardGritterNotification = function() {
     });
 };
 
+var handleSideBarToggle = function(){
+    $("#sidebar").find(".nav-header").on("click", function(){
+        $("#page-container").toggleClass("page-sidebar-fixed-off");
+    });
+};
+
 var Dashboard = function () {
 	"use strict";
     return {
@@ -312,6 +324,7 @@ var Dashboard = function () {
             handleDashboardTodolist();
             handleVectorMap();
             handleDashboardDatepicker();
+            handleSideBarToggle();
         }
     };
 }();
