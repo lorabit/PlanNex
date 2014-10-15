@@ -68,17 +68,32 @@
 	list-style: none;
 	line-height: 2em;
 	font-size: 12px;
+	padding-left: 10px;
 }
 .interactive-chart-info li .dt{
 	display: inline-block;
+	float: left;
 	width: 4em;
+	height: 2em;
 	margin-right: 15px;
-	text-align:justify;
-	/*text-justify:distribute-all-lines;
-	text-align-last:justify;
-	-moz-text-align-last:justify;
-	-webkit-text-align-last:justify;
-	word-wrap: break-word;*/
-	/*text-justify:inter-ideograph;*/
-	text-justify:distribute-all-lines;
+	text-align: justify;
+	text-justify: distribute-all-lines;
+	text-align-last: justify;
+	-moz-text-align-last: justify;
+	-webkit-text-align-last: justify;
+}
+.interactive-chart-info li .dd{
+	float: left;
+}
+.interactive-chart-info li .dt:after {
+	content: ".";
+	display: inline-block;
+	width: 100%;
+	overflow: hidden;
+	height: 0;
+	line-height: 0;
+}
+.interactive-chart-legend{
+	margin-left: 10px;
+	margin-top: 65px;
 }

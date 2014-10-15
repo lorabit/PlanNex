@@ -28,21 +28,67 @@ var handleVectorMap = function() {
 	"use strict";
 	if ($('#world-map').length !== 0) {
 		$('#world-map').vectorMap({
-		map: 'world_mill_en',
+		map: 'cn_mill_en',
 		scaleColors: ['#e74c3c', '#0071a4'],
 		normalizeFunction: 'polynomial',
 		hoverOpacity: 0.5,
 		hoverColor: false,
 		markerStyle: {
 			initial: {
-				fill: '#4cabc7',
+				fill: '#747178',
 				stroke: 'transparent',
 				r: 3
 			}
-		},
+    	},
+        regions: [{
+            scale: {
+              red: '#ff0000',
+              green: '#00ff00'
+            },
+            attribute: 'fill',
+            values: {
+              "CN-33": 'red',
+              "CN-64": 'red',
+              "CN-54": 'red',
+              "CN-22": 'red',
+              "CN-31": 'red',
+              "CN-34": 'red'
+            },
+            legend: {
+              horizontal: true,
+              title: 'Color'
+            }
+          },{
+            values: {
+              "CN-33": 'blue',
+              "CN-35": 'blue'
+            },
+            attribute: 'fill'
+          },{
+            scale: {
+              redGreen: 'assets/bg-red-green.png',
+              yellowBlue: 'assets/bg-yellow-blue.png'
+            },
+            values: {
+              "US-TX": 'redGreen',
+              "US-CA": 'yellowBlue'
+            },
+            attribute: 'fill',
+            legend: {
+              horizontal: true,
+              cssClass: 'jvectormap-legend-bg',
+              title: 'Pattern',
+              labelRender: function(v){
+                return {
+                  redGreen: 'Low',
+                  yellowBlue: 'High'
+                }[v];
+              }
+            }
+          }],
 		regionStyle: {
 			initial: {
-				fill: 'rgb(97,109,125)',
+				fill: 'rgb(116,113,120)',
                 "fill-opacity": 1,
                 stroke: 'none',
                 "stroke-width": 0.4,
@@ -62,9 +108,13 @@ var handleVectorMap = function() {
             y: 0.5,
             scale: 0
         },
-		backgroundColor: '#2d353c',
+		backgroundColor: 'transparent',
+        colors : {
+            "CN-33": "orange",
+            "CN-35": green
+        },
 		markers: [
-			{latLng: [41.90, 12.45], name: 'Vatican City'},
+			{latLng: [41.90, 12.45], name: 'Xizang', fill :'white'},
 			{latLng: [43.73, 7.41], name: 'Monaco'},
 			{latLng: [-0.52, 166.93], name: 'Nauru'},
 			{latLng: [-8.51, 179.21], name: 'Tuvalu'},
@@ -120,7 +170,7 @@ var handleInteractiveChart = function () {
         $.plot($("#interactive-chart"), [
                 {
                     data: data1, 
-                    label: "Page Views", 
+                    label: "品牌A", 
                     color: "#fff",
                     lines: { show: true, fill:false, lineWidth: 4 },
                     // points: { show: true, radius: 3, fillColor: '#fff' },
@@ -128,7 +178,7 @@ var handleInteractiveChart = function () {
                     shadowSize: 0
                 }, {
                     data: data2,
-                    label: 'Visitors',
+                    label: '品牌B',
                     color: orangeLight,
                     lines: { show: true, fill:false, lineWidth: 4 },
                     points: { show: true, radius: 3, fillColor: '#fff' },
@@ -136,7 +186,7 @@ var handleInteractiveChart = function () {
                 }
             ], 
             {
-                xaxis: {  ticks:xLabel, tickDecimals: 0, tickColor: 'transparent' },
+                xaxis: {  ticks:xLabel,  lineWidth: 1,  tickDecimals: 0, tickColor: 'transparent' },
                 yaxis: {  ticks: 10, tickColor: '#7c6f71', min: 0, max: 160 },
                 grid: {
                     hoverable: true, 
@@ -153,10 +203,16 @@ var handleInteractiveChart = function () {
                     borderColor: '#7c6f71'
                 },
                 legend: {
-                    labelBoxBorderColor: '#ddd',
+                    // labelBoxBorderColor: '#ddd',
+                    color: "#fff",
                     margin: 10,
                     noColumns: 1,
-                    show: true
+                    // show: true,
+                    container: $("#interactive-chart-legend"),
+                    labelFormatter: function(label, series) {
+                        // series is the series object for the label
+                        return '<span style="color: #fff">' + label + '</span>';
+                    }
                 }
             }
         );
@@ -185,15 +241,13 @@ var handleInteractiveChart = function () {
 var handleDonutChart = function () {
 	"use strict";
 	if ($('#donut-chart').length !== 0) {
-        var donutData = [{ label: "Chrome",  data: 35, color: purpleDark},
-			{ label: "Firefox",  data: 30, color: purple},
-			{ label: "Safari",  data: 15, color: purpleLight},
-			{ label: "Opera",  data: 10, color: blue},
-			{ label: "IE",  data: 5, color: blueDark}];
+        var donutData = [{ label: "客户",  data: 86, color: "#fff", selected: true},
+			{ label: "其他产品",  data: 14, color: "#9a9195"}];
 		$.plot('#donut-chart', donutData, {
 			series: {
 				pie: {
 					innerRadius: 0.5,
+                    // radius: 20,
 					show: true,
 					label: {
 						show: true
