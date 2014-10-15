@@ -1557,8 +1557,8 @@ defaultOptions = {
 
 	credits: {
 		enabled: true,
-		text: 'Highcharts.com',
-		href: 'http://www.highcharts.com',
+		// text: 'Highcharts.com',
+		// href: 'http://www.highcharts.com',
 		position: {
 			align: 'right',
 			x: -10,
@@ -11934,7 +11934,7 @@ Chart.prototype = {
 		chart.renderLabels();
 
 		// Credits
-		chart.showCredits(options.credits);
+		// chart.showCredits(options.credits);
 
 		// Set flag
 		chart.hasRendered = true;
