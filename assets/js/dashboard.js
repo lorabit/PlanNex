@@ -144,7 +144,96 @@ var handleVectorMap = function() {
 		});
 	}
 };
-
+var makeLegends = function(series){
+    var tableHtml = $('<table style="font-size:smaller;color:#545454"><tbody>' + 
+                    '</tbody></table>');
+    for(var i = 0; i < series.length; i++){
+        var se = series[i];
+        var tr = $('<tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px">' + 
+                 '<div style="width:4px;height:0;border:5px solid #fff;overflow:hidden"></div>' +
+                 '</div></td><td class="legendLabel" style="color: #fff"></td></tr>');
+        tr.find('.legendColorBox > div > div').css("border", "5px solid " + se.color);
+        tr.find('.legendLabel').html(se.name);
+        tr.appendTo(tableHtml.find("tbody"));
+    }
+    tableHtml.appendTo("#interactive-chart-legend");
+};
+var handleInteractiveChartHigh = function(){
+    "use strict";
+    $('#interactive-chart').highcharts({
+        xAxis: {
+            title: '',
+            min: 0,
+            max: 350,
+            tickColor: '#7d6f71',
+            lineColor: '#7d6f71',
+            tickPosition: 'inside',
+            labels: {
+                style: {
+                    color: '#fff'
+                }
+            }
+        },
+        yAxis: {
+            title: '',
+            min: 0,
+            max: 100,
+            gridLineColor: '#7d6f71',
+            labels: {
+                style: {
+                    color: '#fff'
+                }
+            }
+        },
+        title: {
+            text: ''
+        },
+        chart: {
+            backgroundColor: 'transparent',
+            events:{
+                load: function(events){
+                    // alert(this);
+                    
+                    var _this = this;
+                    var series = _this.series;
+                    console.log(series);
+                    makeLegends(series)
+                }
+            }
+        },
+        legend:{
+            x: 1000,
+            floating: true,
+            align: 'right'
+        },
+        series: [{
+            color: orange,
+            type: 'line',
+            lineWidth: 5,
+            name: '品牌A',
+            data: [[0, 12], [25, 12], [50, 25], [75, 30], [100, 35], [125, 42], [150, 55], [175, 67], [200, 72], [225, 82], [250, 80], [275, 95], [300, 85]],
+            marker: {
+                radius: 4,
+                symbol: 'circle'
+            },
+            states: {
+                hover: {
+                    lineWidth: 0
+                }
+            },
+        }, {
+            color: grey,
+            type: 'line',
+            lineWidth: 5,
+            name: '品牌B',
+            data: [[0, 15], [25, 22], [50, 15], [75, 20], [100, 31], [125, 40], [150, 45], [175, 57], [200, 68], [225, 79], [250, 90], [275, 90], [300, 89]],
+            marker: {
+                radius: 4,
+                symbol: 'circle'
+            }
+        }]
+    });
+};
 var handleInteractiveChart = function () {
 	"use strict";
     function showTooltip(x, y, contents) {
@@ -372,12 +461,13 @@ var Dashboard = function () {
         //main function
         init: function () {
             // handleDashboardGritterNotification();
-            handleInteractiveChart();
-            handleDashboardSparkline();
-            handleDonutChart();
-            handleDashboardTodolist();
+            handleInteractiveChartHigh();
+            // handleInteractiveChart();
+            // handleDashboardSparkline();
+            // handleDonutChart();
+            // handleDashboardTodolist();
             handleVectorMap();
-            handleDashboardDatepicker();
+            // handleDashboardDatepicker();
             handleSideBarToggle();
         }
     };
