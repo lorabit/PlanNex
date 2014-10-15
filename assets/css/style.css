@@ -3275,7 +3275,7 @@ ul.tagit.inverse li.tagit-choice .tagit-close:focus .ui-icon-close:before {
 /* 5.17 Plugins - Flot Chart */
 
 .legendColorBox > div {
-    margin-right: 5px !important;
+    margin-right: 10px !important;
     border-radius: 5px !important;
     margin-top: 1px !important;
     border: none !important;
@@ -3298,10 +3298,13 @@ ul.tagit.inverse li.tagit-choice .tagit-close:focus .ui-icon-close:before {
     padding-top: 0px !important;
 }
 .legendColorBox > div > div {
-    -webkit-border-radius: 5px !important;
-    -moz-border-radius: 5px !important;
-    border-radius: 5px !important;
-    border-width: 4px !important;
+    -webkit-border-radius: 4px !important;
+    -moz-border-radius: 4px !important;
+    border-radius: 4px !important;
+    border-width: 6px !important;
+    height: 10px!important;
+    width: 10px!important;
+    margin: 5px 0;
 }
 .tickLabel,.legendLabel {
     font-size: 11px !important;
