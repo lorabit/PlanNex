@@ -326,7 +326,119 @@ var handleInteractiveChart = function () {
         });
     }
 };
+var handleDonutChartHigh = function(){
+    var gaugeOptions = {
 
+        chart: {
+            backgroundColor: 'transparent',
+            type: 'solidgauge'
+        },
+        colors: ['#fff'],
+        title: null,
+        credits: {
+            enabled: false
+        },
+        pane: {
+            center: ['50%', '50%'], 
+            size: '90%',
+            background: {
+                backgroundColor: '#959094',
+                innerRadius: '80%',
+                outerRadius: '95%'
+            }
+        },
+
+        tooltip: {
+            enabled: false
+        },
+
+        // the value axis
+        yAxis: {
+            min: 0,
+            max: 100,
+            lineWidth: 0,
+            minorTickInterval: null,
+            tickPixelInterval: 400,
+            tickWidth: 0,
+            // title: {
+            //     y: 120
+            // },
+            labels: {
+                enabled: false
+            }
+        },
+
+        plotOptions: {
+            solidgauge: {
+                dataLabels: {
+                    y: 5,
+                    borderWidth: 0,
+                    useHTML: true
+                }
+            }
+        }
+    };
+
+    // The speed gauge
+    $('#donut-chart-2').highcharts(Highcharts.merge(gaugeOptions, {
+        yAxis: {
+            title: {
+                text: 'Youku',
+                y: 140,
+                style: {
+                    color:"#fff"
+                }
+            }
+        },
+        pane: {
+            size: '90%',
+            // 计算： startAngle: (0.5 - data) * 360 * 0.5
+            //        endAngle: startAngle + 360
+            startAngle: (0.5 - 0.6) * 360 * 0.5,
+            endAngle:  (0.5 - 0.6) * 360 * 0.5 + 360,
+        },
+        series: [{
+            name: 'Youku',
+            data: [60],
+            dataLabels: {
+                y: -30,
+                format: '<div style="text-align:center"><span style="font-size:40px;color: #e8ac6c;">{y}</span>' +'<span style="font-size:12px;color:#fff">%</span></div>'
+            }
+        }]
+    }));
+
+    // The RPM gauge
+    $('#donut-chart-1').highcharts(Highcharts.merge(gaugeOptions, {
+        yAxis: {
+            title: {
+                text: 'Sohu',
+                offset: 10,
+                y: 120,
+                style: {
+                    color:"#fff"
+                }
+            }
+        },
+
+        pane: {
+            size: '80%',
+            // 计算： startAngle: (0.5 - data) * 360 * 0.5
+            //        endAngle: startAngle + 360
+            startAngle: (0.5 - 0.1) * 360 * 0.5,
+            endAngle:  (0.5 - 0.1) * 360 * 0.5 + 360 ,
+        },
+
+        series: [{
+            name: 'Sohu',
+            data: [10],
+            dataLabels: {
+                y: -30,
+                format: '<div style="text-align:center"><span style="font-size:40px;color: #e8ac6c;">{y}</span>' +'<span style="font-size:12px;color:#fff">%</span></div>'
+            }
+        }]
+
+    }));
+}
 var handleDonutChart = function () {
 	"use strict";
 	if ($('#donut-chart').length !== 0) {
@@ -466,6 +578,7 @@ var Dashboard = function () {
             // handleDashboardSparkline();
             // handleDonutChart();
             // handleDashboardTodolist();
+            handleDonutChartHigh();
             handleVectorMap();
             // handleDashboardDatepicker();
             handleSideBarToggle();

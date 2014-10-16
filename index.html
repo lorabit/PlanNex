@@ -11,7 +11,6 @@
 	<meta content="" name="author" />
 	
 	<!-- ================== BEGIN BASE CSS STYLE ================== -->
-	<!-- <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" /> -->
 	<link href="assets/plugins/jquery-ui-1.10.4/themes/base/minified/jquery-ui.min.css" rel="stylesheet" />
 	<link href="assets/plugins/bootstrap-3.2.0/css/bootstrap.min.css" rel="stylesheet" />
 	<link href="assets/plugins/font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" />
@@ -330,19 +329,6 @@
 		
 		<!-- begin #content -->
 		<div id="content" class="content content-charts">
-			<!-- begin breadcrumb -->
-			<!-- <ol class="breadcrumb pull-right">
-				<li><a href="javascript:;">Home</a></li>
-				<li class="active">Dashboard</li>
-			</ol> -->
-			<!-- end breadcrumb -->
-			<!-- begin page-header -->
-			<!-- <h1 class="page-header">Dashboard <small>header small text goes here...</small></h1> -->
-			<!-- end page-header -->
-			
-			<!-- begin row -->
-			
-			<!-- end row -->
 			<!-- begin row -->
 			<div class="row">
 				<!-- begin col-8 -->
@@ -403,7 +389,11 @@
 							<h4 class="panel-title">媒体曝光量排名</h4>
 						</div>
 						<div class="panel-body">
-							<div id="donut-chart" class="height-sm"></div>
+							<div class="row">
+								<div class="col-md-3 height-sm " id="donut-chart-1"></div>
+								<div class="col-md-6 height-sm " id="donut-chart-2"></div>
+								<div class="col-md-3 height-sm " id="donut-chart-3"></div>
+							</div>
 						</div>
 					</div>
 					
@@ -512,6 +502,8 @@
 	<script src="assets/plugins/flot/jquery.flot.pie.min.js"></script>
 	
 	<script src="assets/plugins/highcharts/highcharts.src.js"></script>
+	<script src="assets/plugins/highcharts/highcharts-more.js"></script>
+	<script src="assets/plugins/highcharts/modules/solid-gauge.js"></script>
 	<!-- // <script src="assets/plugins/sparkline/jquery.sparkline.js"></script> -->
 	<script src="assets/plugins/jquery-jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
 	<script src="assets/plugins/jquery-jvectormap/jquery-jvectormap-cn-mill-en.js"></script>
