@@ -325,12 +325,12 @@ var handleVectorMapHigh = function(){
     $('#world-map').highcharts('Map', {
 
         title : {
-            text : 'Highmaps basic demo'
+            text : null
         },
 
-        subtitle : {
-            text : 'Source map: <a href="http://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js">China with Hong Kong, Macau, and Taiwan</a>'
-        },
+        // subtitle : {
+        //     text : null
+        // },
 
         mapNavigation: {
             enabled: true,
@@ -340,18 +340,19 @@ var handleVectorMapHigh = function(){
         },
 
         colorAxis: {
-            min: 0
+            min: 60,
+            max: 70
         },
 
         series : [{
             data : data,
             mapData: Highcharts.maps['countries/cn/custom/cn-all-sar-taiwan'],
             joinBy: 'hc-key',
-            name: 'Random data',
+            // name: 'Random data',
             states: {
-                hover: {
-                    color: '#BADA55'
-                }
+                // hover: {
+                //     color: '#BADA55'
+                // }
             },
             dataLabels: {
                 enabled: true,
@@ -532,7 +533,6 @@ var handleInteractiveChartHigh = function(){
                     
                     var _this = this;
                     var series = _this.series;
-                    console.log(series);
                     makeLegends(series)
                 }
             }
@@ -888,9 +888,9 @@ var Dashboard = function () {
             // handleDashboardTodolist();
             handleDonutChartHigh();
             // handleVectorMap();
-            // handleVectorMapHigh();
+            handleVectorMapHigh();
             // handleDashboardDatepicker();
-            handleSideBarToggle();
+            // handleSideBarToggle();
         }
     };
 }();
