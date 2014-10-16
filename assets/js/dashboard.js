@@ -23,7 +23,343 @@ var blue		= '#348fe2',
     purpleLight	= '#8e96c5',
     purpleDark	= '#5b6392',
     red         = '#ff5b57';
+var handleVectorMapHigh = function(){
+    // Initiate the chart
+           // Prepare demo data
+    var data = [
+        {
+            "hc-key": "cn-sh",
+            "value": 0
+        },
+        {
+            "hc-key": "cn-zj",
+            "value": 1
+        },
+        {
+            "hc-key": "tw-ph",
+            "value": 2
+        },
+        {
+            "hc-key": "tw-km",
+            "value": 3
+        },
+        {
+            "hc-key": "tw-lk",
+            "value": 4
+        },
+        {
+            "hc-key": "tw-tw",
+            "value": 5
+        },
+        {
+            "hc-key": "tw-cs",
+            "value": 6
+        },
+        {
+            "hc-key": "cn-3664",
+            "value": 7
+        },
+        {
+            "hc-key": "cn-3681",
+            "value": 8
+        },
+        {
+            "hc-key": "tw-tp",
+            "value": 9
+        },
+        {
+            "hc-key": "tw-ch",
+            "value": 10
+        },
+        {
+            "hc-key": "tw-tt",
+            "value": 11
+        },
+        {
+            "hc-key": "tw-pt",
+            "value": 12
+        },
+        {
+            "hc-key": "cn-6657",
+            "value": 13
+        },
+        {
+            "hc-key": "cn-6663",
+            "value": 14
+        },
+        {
+            "hc-key": "cn-6665",
+            "value": 15
+        },
+        {
+            "hc-key": "cn-6666",
+            "value": 16
+        },
+        {
+            "hc-key": "cn-6667",
+            "value": 17
+        },
+        {
+            "hc-key": "cn-gs",
+            "value": 18
+        },
+        {
+            "hc-key": "cn-6669",
+            "value": 19
+        },
+        {
+            "hc-key": "cn-6670",
+            "value": 20
+        },
+        {
+            "hc-key": "cn-6671",
+            "value": 21
+        },
+        {
+            "hc-key": "tw-kh",
+            "value": 22
+        },
+        {
+            "hc-key": "tw-hs",
+            "value": 23
+        },
+        {
+            "hc-key": "tw-hh",
+            "value": 24
+        },
+        {
+            "hc-key": "cn-nx",
+            "value": 25
+        },
+        {
+            "hc-key": "cn-sa",
+            "value": 26
+        },
+        {
+            "hc-key": "tw-cl",
+            "value": 27
+        },
+        {
+            "hc-key": "cn-3682",
+            "value": 28
+        },
+        {
+            "hc-key": "tw-ml",
+            "value": 29
+        },
+        {
+            "hc-key": "cn-6655",
+            "value": 30
+        },
+        {
+            "hc-key": "cn-ah",
+            "value": 31
+        },
+        {
+            "hc-key": "cn-hu",
+            "value": 32
+        },
+        {
+            "hc-key": "tw-ty",
+            "value": 33
+        },
+        {
+            "hc-key": "cn-6656",
+            "value": 34
+        },
+        {
+            "hc-key": "tw-cg",
+            "value": 35
+        },
+        {
+            "hc-key": "cn-6658",
+            "value": 36
+        },
+        {
+            "hc-key": "tw-hl",
+            "value": 37
+        },
+        {
+            "hc-key": "tw-nt",
+            "value": 38
+        },
+        {
+            "hc-key": "tw-th",
+            "value": 39
+        },
+        {
+            "hc-key": "cn-6659",
+            "value": 40
+        },
+        {
+            "hc-key": "cn-6660",
+            "value": 41
+        },
+        {
+            "hc-key": "cn-6661",
+            "value": 42
+        },
+        {
+            "hc-key": "tw-yl",
+            "value": 43
+        },
+        {
+            "hc-key": "cn-6662",
+            "value": 44
+        },
+        {
+            "hc-key": "cn-6664",
+            "value": 45
+        },
+        {
+            "hc-key": "cn-6668",
+            "value": 46
+        },
+        {
+            "hc-key": "cn-gd",
+            "value": 47
+        },
+        {
+            "hc-key": "cn-fj",
+            "value": 48
+        },
+        {
+            "hc-key": "cn-bj",
+            "value": 49
+        },
+        {
+            "hc-key": "cn-hb",
+            "value": 50
+        },
+        {
+            "hc-key": "cn-sd",
+            "value": 51
+        },
+        {
+            "hc-key": "tw-tn",
+            "value": 52
+        },
+        {
+            "hc-key": "cn-tj",
+            "value": 53
+        },
+        {
+            "hc-key": "tw-il",
+            "value": 54
+        },
+        {
+            "hc-key": "cn-js",
+            "value": 55
+        },
+        {
+            "hc-key": "cn-ha",
+            "value": 56
+        },
+        {
+            "hc-key": "cn-qh",
+            "value": 57
+        },
+        {
+            "hc-key": "cn-jl",
+            "value": 58
+        },
+        {
+            "hc-key": "cn-xz",
+            "value": 59
+        },
+        {
+            "hc-key": "cn-xj",
+            "value": 60
+        },
+        {
+            "hc-key": "cn-he",
+            "value": 61
+        },
+        {
+            "hc-key": "cn-nm",
+            "value": 62
+        },
+        {
+            "hc-key": "cn-hl",
+            "value": 63
+        },
+        {
+            "hc-key": "cn-yn",
+            "value": 64
+        },
+        {
+            "hc-key": "cn-gx",
+            "value": 65
+        },
+        {
+            "hc-key": "cn-ln",
+            "value": 66
+        },
+        {
+            "hc-key": "cn-sc",
+            "value": 67
+        },
+        {
+            "hc-key": "cn-cq",
+            "value": 68
+        },
+        {
+            "hc-key": "cn-gz",
+            "value": 69
+        },
+        {
+            "hc-key": "cn-hn",
+            "value": 70
+        },
+        {
+            "hc-key": "cn-sx",
+            "value": 71
+        },
+        {
+            "hc-key": "cn-jx",
+            "value": 72
+        }
+    ];
 
+    // Initiate the chart
+    $('#world-map').highcharts('Map', {
+
+        title : {
+            text : 'Highmaps basic demo'
+        },
+
+        subtitle : {
+            text : 'Source map: <a href="http://code.highcharts.com/mapdata/countries/cn/custom/cn-all-sar-taiwan.js">China with Hong Kong, Macau, and Taiwan</a>'
+        },
+
+        mapNavigation: {
+            enabled: true,
+            buttonOptions: {
+                verticalAlign: 'bottom'
+            }
+        },
+
+        colorAxis: {
+            min: 0
+        },
+
+        series : [{
+            data : data,
+            mapData: Highcharts.maps['countries/cn/custom/cn-all-sar-taiwan'],
+            joinBy: 'hc-key',
+            name: 'Random data',
+            states: {
+                hover: {
+                    color: '#BADA55'
+                }
+            },
+            dataLabels: {
+                enabled: true,
+                format: '{point.name}'
+            }
+        }]
+    });
+};
 var handleVectorMap = function() {
 	"use strict";
 	if ($('#world-map').length !== 0) {
@@ -340,11 +676,11 @@ var handleDonutChartHigh = function(){
         },
         pane: {
             center: ['50%', '50%'], 
-            size: '90%',
+            // size: '40%',
             background: {
                 backgroundColor: '#959094',
-                innerRadius: '80%',
-                outerRadius: '95%'
+                innerRadius: '70%',
+                outerRadius: '90%'
             }
         },
 
@@ -352,6 +688,11 @@ var handleDonutChartHigh = function(){
             enabled: false
         },
 
+        xAxis: {
+            plotLines: [{
+                width: 100
+            }]
+        },
         // the value axis
         yAxis: {
             min: 0,
@@ -370,8 +711,9 @@ var handleDonutChartHigh = function(){
 
         plotOptions: {
             solidgauge: {
+                // animation: true,
                 dataLabels: {
-                    y: 5,
+                    y: 4,
                     borderWidth: 0,
                     useHTML: true
                 }
@@ -379,12 +721,46 @@ var handleDonutChartHigh = function(){
         }
     };
 
-    // The speed gauge
+    
+    // The pptv gauge
+    $('#donut-chart-1').highcharts(Highcharts.merge(gaugeOptions, {
+        yAxis: {
+            title: {
+                text: 'pptv',
+                offset: 10,
+                y: 140,
+                style: {
+                    color:"#fff"
+                }
+            }
+        },
+
+        pane: {
+            size: '80%',
+            // 计算： startAngle: (0.5 - data) * 360 * 0.5
+            //        endAngle: startAngle + 360
+            startAngle: (0.5 - 0.1) * 360 * 0.5,
+            endAngle:  (0.5 - 0.1) * 360 * 0.5 + 360 ,
+        },
+
+        series: [{
+            name: 'pptv',
+            data: [10],
+            innerSize: '20%',
+            dataLabels: {
+                y: -30,
+                format: '<div style="text-align:center"><span style="font-size:40px;color: #e8ac6c;">{y}</span>' +'<span style="font-size:12px;color:#fff">%</span></div>'
+            }
+        }]
+
+    }));
+
+    // The Youku gauge
     $('#donut-chart-2').highcharts(Highcharts.merge(gaugeOptions, {
         yAxis: {
             title: {
                 text: 'Youku',
-                y: 140,
+                y: 200,
                 style: {
                     color:"#fff"
                 }
@@ -394,26 +770,27 @@ var handleDonutChartHigh = function(){
             size: '90%',
             // 计算： startAngle: (0.5 - data) * 360 * 0.5
             //        endAngle: startAngle + 360
-            startAngle: (0.5 - 0.6) * 360 * 0.5,
-            endAngle:  (0.5 - 0.6) * 360 * 0.5 + 360,
+            startAngle: (0.5 - 0.86) * 360 * 0.5,
+            endAngle:  (0.5 - 0.86) * 360 * 0.5 + 360,
         },
         series: [{
             name: 'Youku',
-            data: [60],
+            data: [86],
+            innerSize: '10%',
             dataLabels: {
-                y: -30,
-                format: '<div style="text-align:center"><span style="font-size:40px;color: #e8ac6c;">{y}</span>' +'<span style="font-size:12px;color:#fff">%</span></div>'
+                y: -60,
+                format: '<div style="text-align:center"><span style="font-size:80px;color: #e8ac6c;">{y}</span>' +'<span style="font-size:12px;color:#fff">%</span></div>'
             }
         }]
     }));
 
-    // The RPM gauge
-    $('#donut-chart-1').highcharts(Highcharts.merge(gaugeOptions, {
+    // The Sohu gauge
+    $('#donut-chart-3').highcharts(Highcharts.merge(gaugeOptions, {
         yAxis: {
             title: {
                 text: 'Sohu',
                 offset: 10,
-                y: 120,
+                y: 140,
                 style: {
                     color:"#fff"
                 }
@@ -431,6 +808,7 @@ var handleDonutChartHigh = function(){
         series: [{
             name: 'Sohu',
             data: [10],
+            innerSize: '20%',
             dataLabels: {
                 y: -30,
                 format: '<div style="text-align:center"><span style="font-size:40px;color: #e8ac6c;">{y}</span>' +'<span style="font-size:12px;color:#fff">%</span></div>'
@@ -438,6 +816,7 @@ var handleDonutChartHigh = function(){
         }]
 
     }));
+
 }
 var handleDonutChart = function () {
 	"use strict";
@@ -462,77 +841,6 @@ var handleDonutChart = function () {
     }
 };
 
-var handleDashboardSparkline = function() {
-	"use strict";
-    var options = {
-        height: '50px',
-        width: '100%',
-        fillColor: 'transparent',
-        lineWidth: 2,
-        spotRadius: '4',
-        highlightLineColor: blue,
-        highlightSpotColor: blue,
-        spotColor: false,
-        minSpotColor: false,
-        maxSpotColor: false
-    };
-    function renderDashboardSparkline() {
-        var value = [50,30,45,40,50,20,35,40,50,70,90,40];
-        options.type = 'line';
-        options.height = '23px';
-        options.lineColor = red;
-        options.highlightLineColor = red;
-        options.highlightSpotColor = red;
-        
-        var countWidth = $('#sparkline-unique-visitor').width();
-        if (countWidth >= 200) {
-            options.width = '200px';
-        } else {
-            options.width = '100%';
-        }
-        
-        $('#sparkline-unique-visitor').sparkline(value, options);
-        options.lineColor = orange;
-        options.highlightLineColor = orange;
-        options.highlightSpotColor = orange;
-        $('#sparkline-bounce-rate').sparkline(value, options);
-        options.lineColor = green;
-        options.highlightLineColor = green;
-        options.highlightSpotColor = green;
-        $('#sparkline-total-page-views').sparkline(value, options);
-        options.lineColor = blue;
-        options.highlightLineColor = blue;
-        options.highlightSpotColor = blue;
-        $('#sparkline-avg-time-on-site').sparkline(value, options);
-        options.lineColor = grey;
-        options.highlightLineColor = grey;
-        options.highlightSpotColor = grey;
-        $('#sparkline-new-visits').sparkline(value, options);
-        options.lineColor = dark;
-        options.highlightLineColor = dark;
-        options.highlightSpotColor = grey;
-        $('#sparkline-return-visitors').sparkline(value, options);
-    }
-    
-    renderDashboardSparkline();
-    
-    $(window).on('resize', function() {
-        $('#sparkline-unique-visitor').empty();
-        $('#sparkline-bounce-rate').empty();
-        $('#sparkline-total-page-views').empty();
-        $('#sparkline-avg-time-on-site').empty();
-        $('#sparkline-new-visits').empty();
-        $('#sparkline-return-visitors').empty();
-        renderDashboardSparkline();
-    });
-};
-
-var handleDashboardDatepicker = function() {
-	"use strict";
-    $('#datepicker-inline').datepicker({
-        todayHighlight: true
-    });
-};
 
 var handleDashboardTodolist = function() {
 	"use strict";
@@ -579,7 +887,8 @@ var Dashboard = function () {
             // handleDonutChart();
             // handleDashboardTodolist();
             handleDonutChartHigh();
-            handleVectorMap();
+            // handleVectorMap();
+            // handleVectorMapHigh();
             // handleDashboardDatepicker();
             handleSideBarToggle();
         }
