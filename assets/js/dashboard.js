@@ -321,9 +321,30 @@ var handleVectorMapHigh = function(){
         }
     ];
 
+    // for(var i = 0; i < data.length; i++){
+    //     data[i].path = "m 200,250 a 150,30 0 1 0 0,70";
+    // }
     // Initiate the chart
     $('#world-map').highcharts('Map', {
-
+        chart:{
+            backgroundColor: 'transparent',
+            borderColor: '#676a72'
+        },
+        legend: {
+            align: 'right',
+            verticalAlign: 'bottom',
+            floating: true,
+            layout: 'vertical',
+            margin: 20,
+            valueDecimals: 0,
+            symbolRadius: 0,
+            symbolHeight: 14,
+            itemStyle: {
+                color: '#d6d6d8'
+            },
+            itemMarginTop: 10,
+            itemDistance: 20
+        },
         title : {
             text : null
         },
@@ -338,25 +359,37 @@ var handleVectorMapHigh = function(){
                 verticalAlign: 'bottom'
             }
         },
-
+        // tooltip:{
+        //     enabled: false
+        // },
+        colors: ['#676b74', '#ae8151', '#303645'],
         colorAxis: {
-            min: 60,
-            max: 70
-        },
-
+                    dataClassColor: 'category',
+                    dataClasses: [{
+                        to: 40,
+                        name: '品牌A'
+                    }, {
+                        from: 40,
+                        to:60,
+                        name: '品牌B'
+                    }, {
+                        from: 60,
+                        name: '行业数据'
+                    }]
+                },
         series : [{
-            data : data,
+            
             mapData: Highcharts.maps['countries/cn/custom/cn-all-sar-taiwan'],
+            data : data,
             joinBy: 'hc-key',
             // name: 'Random data',
             states: {
-                // hover: {
-                //     color: '#BADA55'
-                // }
+                hover: {
+                    color: '#BADA55'
+                }
             },
             dataLabels: {
-                enabled: true,
-                format: '{point.name}'
+                enabled: false
             }
         }]
     });
@@ -679,8 +712,8 @@ var handleDonutChartHigh = function(){
             // size: '40%',
             background: {
                 backgroundColor: '#959094',
-                innerRadius: '70%',
-                outerRadius: '90%'
+                innerRadius: '85%',
+                outerRadius: '95%'
             }
         },
 
@@ -746,10 +779,10 @@ var handleDonutChartHigh = function(){
         series: [{
             name: 'pptv',
             data: [10],
-            innerSize: '20%',
+            innerRadius: '80%',
             dataLabels: {
                 y: -30,
-                format: '<div style="text-align:center"><span style="font-size:40px;color: #e8ac6c;">{y}</span>' +'<span style="font-size:12px;color:#fff">%</span></div>'
+                format: '<div style="text-align:center"><span style="font-size:40px;color: #e8ac6c;">{y}</span>' +'<span style="font-size:14px;color:#fff">%</span></div>'
             }
         }]
 
@@ -776,10 +809,10 @@ var handleDonutChartHigh = function(){
         series: [{
             name: 'Youku',
             data: [86],
-            innerSize: '10%',
+            innerRadius: '80%',
             dataLabels: {
                 y: -60,
-                format: '<div style="text-align:center"><span style="font-size:80px;color: #e8ac6c;">{y}</span>' +'<span style="font-size:12px;color:#fff">%</span></div>'
+                format: '<div style="text-align:center"><span style="font-size:80px;color: #e8ac6c;">{y}</span>' +'<span style="font-size:14px;color:#fff">%</span></div>'
             }
         }]
     }));
@@ -808,10 +841,10 @@ var handleDonutChartHigh = function(){
         series: [{
             name: 'Sohu',
             data: [10],
-            innerSize: '20%',
+            innerRadius: '80%',
             dataLabels: {
                 y: -30,
-                format: '<div style="text-align:center"><span style="font-size:40px;color: #e8ac6c;">{y}</span>' +'<span style="font-size:12px;color:#fff">%</span></div>'
+                format: '<div style="text-align:center"><span style="font-size:40px;color: #e8ac6c;">{y}</span>' +'<span style="font-size:14px;color:#fff">%</span></div>'
             }
         }]
 
@@ -890,7 +923,7 @@ var Dashboard = function () {
             // handleVectorMap();
             handleVectorMapHigh();
             // handleDashboardDatepicker();
-            // handleSideBarToggle();
+            handleSideBarToggle();
         }
     };
 }();
