@@ -462,6 +462,7 @@ label {
     bottom: 0;
     /*padding-top: 54px;*/
     background: url(../img/icons/sidebar-bg.png);
+    background-size: auto 100%;
     z-index: 10;
 }
 .sidebar-bg {
@@ -480,11 +481,14 @@ label {
     clear: both;
     display: table;
 }
-.sidebar .nav > li > a {
-    padding: 8px 20px;
+.sidebar .nav > li > span {
+    padding: 20px 20px 10px 20px;
     line-height: 20px;
     color: #a8acb1;
+    display: block;
+    font-size: 12px;
 }
+.sidebar .nav > li > span:nth-child(n+1){border-top: 1px solid #7f7376;}
 .sidebar.sidebar-grid .nav > li > a {
     border-bottom: 1px solid #383f46;
     border-top: 1px solid #383f46;
@@ -503,14 +507,14 @@ label {
 }
 .sidebar .nav > li > a:hover,
 .sidebar .nav > li > a:focus {
-    background: #232a2f;
-    color: #a8acb1;
+    background: #6f5f5c;
+    color: #fff;
 }
 .sidebar .nav > li.active > a, 
 .sidebar .nav > li.active > a:hover, 
 .sidebar .nav > li.active > a:focus {
     color: #fff;
-    background: #00acac;
+    background: #6f5f5c;
 }
 .sidebar .nav > li.active > a .label.label-success,
 .sidebar .nav > li.active > a .badge.badge-success {
@@ -540,13 +544,16 @@ label {
 }
 .sidebar .sub-menu {
     list-style-type: none;
-    padding: 10px 0 10px 30px;
+    /*padding: 10px 0 10px 30px;*/
     margin: 0;
-    background: #1a2229;
+    /*margin-bottom: 10px;*/
+    padding: 0;
+    /*background: #1a2229;*/
     position: relative;
-    display: none;
+    /*display: none;*/
 }
-.sidebar .sub-menu:before {
+
+/*.sidebar .sub-menu:before {
     content: '';
     position: absolute;
     left: 26px;
@@ -554,20 +561,25 @@ label {
     bottom: 0;
     width: 2px;
     background: #10181F;
-}
+}*/
 .sidebar .sub-menu .sub-menu {
     padding: 0 0 0 30px;
     background: none;
 }
 .sidebar .sub-menu > li > a {
-    padding: 5px 20px;
+    padding: 10px 20px;
+    line-height: 20px;
+    color: #fff;
     display:block;
     font-weight: 300;
-    color: #889097;
+    font-size: 16px;
     text-decoration: none;
     position: relative;
 }
-.sidebar .sub-menu > li > a:before {
+.sidebar .sub-menu > li > a:hover{
+    background-color: #6f5f5c;
+}
+/*.sidebar .sub-menu > li > a:before {
     content: '\f10c';
     font-family: FontAwesome;
     position: absolute;
@@ -577,7 +589,7 @@ label {
     top: 50%;
     margin-top: -4px;
     margin-left: -6px;
-}
+}*/
 .sidebar .sub-menu > li > a:hover,
 .sidebar .sub-menu > li > a:focus,
 .sidebar .sub-menu > li.active > a,
@@ -596,6 +608,7 @@ label {
     margin: 0;
     padding: 17px 20px;
     line-height: 20px;
+    height: 54px;
     font-size: 11px;
     /*color: #6d7983;*/
     background-color: #fff;

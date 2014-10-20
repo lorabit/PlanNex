@@ -23,6 +23,20 @@ var blue		= '#348fe2',
     purpleLight	= '#8e96c5',
     purpleDark	= '#5b6392',
     red         = '#ff5b57';
+var makeMapLegends = function(colors, colorAxis, elemId){
+    var tableHtml = $('<table style="font-size:smaller;color:#545454; position: absolute; bottom: 40px;"><tbody>' + 
+                    '</tbody></table>');
+    for(var i = 0; i < colors.length; i++){
+        // var se = colors[i];
+        var tr = $('<tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px">' + 
+                 '<div style="width:4px;height:0;border:5px solid #fff;overflow:hidden"></div>' +
+                 '</div></td><td class="legendLabel" style="color: #fff"></td></tr>');
+        tr.find('.legendColorBox > div > div').css("border", "5px solid " + colors[i]);
+        tr.find('.legendLabel').html(colorAxis.dataClasses[i].name);
+        tr.appendTo(tableHtml.find("tbody"));
+    }
+    tableHtml.appendTo(elemId);
+};
 var handleVectorMapHigh = function(){
     // Initiate the chart
            // Prepare demo data
@@ -328,22 +342,22 @@ var handleVectorMapHigh = function(){
     $('#world-map').highcharts('Map', {
         chart:{
             backgroundColor: 'transparent',
-            borderColor: '#676a72'
+            borderColor: '#676a72',
+            events:{
+                load: function(events){
+                    // alert(this);
+                    
+                    var _this = this;
+                    var colors = _this.options.colors;
+                    var colorAxis = _this.options.colorAxis;
+                    makeMapLegends(colors, colorAxis, "#world-map-legend");
+                }
+            }
         },
         legend: {
-            align: 'right',
-            verticalAlign: 'bottom',
+            x: 1000,
             floating: true,
-            layout: 'vertical',
-            margin: 20,
-            valueDecimals: 0,
-            symbolRadius: 0,
-            symbolHeight: 14,
-            itemStyle: {
-                color: '#d6d6d8'
-            },
-            itemMarginTop: 10,
-            itemDistance: 20
+            align: 'right'
         },
         title : {
             text : null
@@ -514,7 +528,7 @@ var handleVectorMap = function() {
 		});
 	}
 };
-var makeLegends = function(series){
+var makeLegends = function(series, elemId){
     var tableHtml = $('<table style="font-size:smaller;color:#545454"><tbody>' + 
                     '</tbody></table>');
     for(var i = 0; i < series.length; i++){
@@ -526,7 +540,7 @@ var makeLegends = function(series){
         tr.find('.legendLabel').html(se.name);
         tr.appendTo(tableHtml.find("tbody"));
     }
-    tableHtml.appendTo("#interactive-chart-legend");
+    tableHtml.appendTo(elemId);
 };
 var handleInteractiveChartHigh = function(){
     "use strict";
@@ -566,7 +580,7 @@ var handleInteractiveChartHigh = function(){
                     
                     var _this = this;
                     var series = _this.series;
-                    makeLegends(series)
+                    makeLegends(series, "#interactive-chart-legend");
                 }
             }
         },
