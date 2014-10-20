@@ -542,6 +542,21 @@ var makeLegends = function(series, elemId){
     }
     tableHtml.appendTo(elemId);
 };
+
+var fakeData = function(a, b, c, type){
+    var data = [];
+    if(type == "regression"){
+        for(var i = 0; i < 350; i++){
+            data[i] = [i, a * i * i + b * i + c];
+        }
+        return data;
+    }else{
+        for(var i = 0; i < 350; i++){
+            data[i] = [i, a * i * i + b * i + c + 5 - Math.Random(10) * i];
+        }
+        return data;
+    }
+};
 var handleInteractiveChartHigh = function(){
     "use strict";
     $('#interactive-chart').highcharts({
@@ -595,7 +610,8 @@ var handleInteractiveChartHigh = function(){
             type: 'line',
             lineWidth: 5,
             name: '品牌A',
-            data: [[0, 12], [25, 12], [50, 25], [75, 30], [100, 35], [125, 42], [150, 55], [175, 67], [200, 72], [225, 82], [250, 80], [275, 95], [300, 85]],
+            // data: [[0, 12], [25, 12], [50, 25], [75, 30], [100, 35], [125, 42], [150, 55], [175, 67], [200, 72], [225, 82], [250, 80], [275, 95], [300, 85]],
+            data: fakeData(0.0001, -2, 3, "regression"),
             marker: {
                 radius: 4,
                 symbol: 'circle'
