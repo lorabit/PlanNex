@@ -393,7 +393,7 @@ var handleVectorMapHigh = function(){
                 },
         series : [{
             
-            mapData: Highcharts.maps['countries/cn/custom/cn-all-sar-taiwan'],
+            mapData: Highcharts.maps['countries/cn/custom/cn-all-sar'],
             data : data,
             joinBy: 'hc-key',
             // name: 'Random data',
@@ -574,6 +574,7 @@ var handleInteractiveChartHigh = function(){
         },
         chart: {
             backgroundColor: 'transparent',
+            type: 'spline',
             events:{
                 load: function(events){
                     // alert(this);
@@ -711,7 +712,6 @@ var handleInteractiveChart = function () {
 };
 var handleDonutChartHigh = function(){
     var gaugeOptions = {
-
         chart: {
             backgroundColor: 'transparent',
             type: 'solidgauge'
@@ -727,8 +727,9 @@ var handleDonutChartHigh = function(){
             background: {
                 backgroundColor: '#959094',
                 innerRadius: '85%',
-                outerRadius: '95%'
-            }
+                outerRadius: '95%',
+                borderWidth: 0
+            },
         },
 
         tooltip: {
@@ -764,6 +765,10 @@ var handleDonutChartHigh = function(){
                     borderWidth: 0,
                     useHTML: true
                 }
+                
+            },
+            bar: {
+                borderWidth: 0
             }
         }
     };
@@ -788,6 +793,7 @@ var handleDonutChartHigh = function(){
             //        endAngle: startAngle + 360
             startAngle: (0.5 - 0.1) * 360 * 0.5,
             endAngle:  (0.5 - 0.1) * 360 * 0.5 + 360 ,
+
         },
 
         series: [{
