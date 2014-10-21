@@ -368,10 +368,10 @@ var handleVectorMapHigh = function(){
         // },
 
         mapNavigation: {
-            enabled: true,
-            buttonOptions: {
-                verticalAlign: 'bottom'
-            }
+            enabled: false,
+            // buttonOptions: {
+            //     verticalAlign: 'bottom'
+            // }
         },
         // tooltip:{
         //     enabled: false
