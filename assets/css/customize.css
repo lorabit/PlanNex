@@ -117,3 +117,8 @@
 	padding-top: 54px;
 }*/
 }
+@media(min-width: 1300px){
+.navbar-center{
+	margin-left: 20%;
+}
+}

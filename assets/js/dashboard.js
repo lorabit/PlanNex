@@ -533,16 +533,19 @@ var makeLegends = function(series, elemId){
                     '</tbody></table>');
     for(var i = 0; i < series.length; i++){
         var se = series[i];
-        var tr = $('<tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px">' + 
-                 '<div style="width:4px;height:0;border:5px solid #fff;overflow:hidden"></div>' +
-                 '</div></td><td class="legendLabel" style="color: #fff"></td></tr>');
-        tr.find('.legendColorBox > div > div').css("border", "5px solid " + se.color);
-        tr.find('.legendLabel').html(se.name);
-        tr.appendTo(tableHtml.find("tbody"));
+        if(se.userOptions.regression){
+            var tr = $('<tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px">' + 
+                     '<div style="width:4px;height:0;border:5px solid #fff;overflow:hidden"></div>' +
+                     '</div></td><td class="legendLabel" style="color: #fff"></td></tr>');
+            tr.find('.legendColorBox > div > div').css("border", "5px solid " + se.color);
+            tr.find('.legendLabel').html(se.name);
+            tr.appendTo(tableHtml.find("tbody"));
+        }
     }
     tableHtml.appendTo(elemId);
 };
 
+// 制造数据，demo用
 var fakeData = function(a, b, c, type){
     var data = [];
     if(type == "regression"){
@@ -607,30 +610,35 @@ var handleInteractiveChartHigh = function(){
         },
         series: [{
             color: orange,
-            type: 'scatter',
             lineWidth: 5,
             name: '品牌A',
             // data: [[0, 12], [25, 12], [50, 25], [75, 30], [100, 35], [125, 42], [150, 55], [175, 67], [200, 72], [225, 82], [250, 80], [275, 95], [300, 85]],
             data: fakeData(-0.001, 0.6, 1, "regression"),
+            regression: true,
             marker: {
-                radius: 4,
-                symbol: 'circle'
+                enabled: false
             },
-            states: {
-                hover: {
-                    lineWidth: 0
-                }
-            },
+            // states: {
+            //     hover: {
+            //         lineWidth: 0
+            //     }
+            // },
         }, {
             color: orange,
-            type: 'scatter',
-            lineWidth: 5,
+            // type: 'scatter',
+            // lineWidth: 5,
             name: '品牌B',
             // data: [[0, 15], [25, 22], [50, 15], [75, 20], [100, 31], [125, 40], [150, 45], [175, 57], [200, 68], [225, 79], [250, 90], [275, 90], [300, 89]],
             data: fakeData(-0.001, 0.6, 1, "dots"),
             marker: {
-                radius: 4,
+                radius: 2,
                 symbol: 'circle'
+            },
+            tooltip: {
+                headerFormat: '',
+                pointFormat: '{point.y}% REACH, <p>{point.x}</p> GRP',
+                backgroundColor: "#000",
+                shadow: true
             }
         }],
          plotOptions: {
@@ -650,10 +658,6 @@ var handleInteractiveChartHigh = function(){
                             enabled: false
                         }
                     }
-                },
-                tooltip: {
-                    headerFormat: '<b>{series.name}</b><br>',
-                    pointFormat: '{point.x} cm, {point.y} kg'
                 }
             }
         },
