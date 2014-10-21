@@ -1,8 +1,7 @@
 
 .navbar-center{
-	position: absolute;
-	left: 50%;
-	margin-left: -60px;
+	float: left;
+	margin-left: 10%;
 }
 .navbar-center > li > a{
 	padding: 17px 0;
@@ -96,4 +95,25 @@
 .interactive-chart-legend{
 	margin-left: 10px;
 	margin-top: 65px;
+}
+@media(max-width: 1120px){
+.navbar-center{
+	margin-left: 2%;
+}
+}
+@media(max-width: 1045px){
+.sidebar {
+	display: none;
+	z-index: 1030;
+}
+
+.navbar-right-seperate {
+	right: 0;
+}
+.navbar-toggle{
+	display: block;
+}
+/*.page-header-fixed {
+	padding-top: 54px;
+}*/
 }

@@ -552,7 +552,7 @@ var fakeData = function(a, b, c, type){
         return data;
     }else{
         for(var i = 0; i < 350; i++){
-            data[i] = [i, a * i * i + b * i + c + 5 - Math.Random(10) * i];
+            data[i] = [i, a * i * i + b * i + c + 15 * (0.5 - Math.random())];
         }
         return data;
     }
@@ -589,7 +589,7 @@ var handleInteractiveChartHigh = function(){
         },
         chart: {
             backgroundColor: 'transparent',
-            type: 'spline',
+            type: 'scatter',
             events:{
                 load: function(events){
                     // alert(this);
@@ -607,11 +607,11 @@ var handleInteractiveChartHigh = function(){
         },
         series: [{
             color: orange,
-            type: 'line',
+            type: 'scatter',
             lineWidth: 5,
             name: '品牌A',
             // data: [[0, 12], [25, 12], [50, 25], [75, 30], [100, 35], [125, 42], [150, 55], [175, 67], [200, 72], [225, 82], [250, 80], [275, 95], [300, 85]],
-            data: fakeData(0.0001, -2, 3, "regression"),
+            data: fakeData(-0.001, 0.6, 1, "regression"),
             marker: {
                 radius: 4,
                 symbol: 'circle'
@@ -622,16 +622,41 @@ var handleInteractiveChartHigh = function(){
                 }
             },
         }, {
-            color: grey,
-            type: 'line',
+            color: orange,
+            type: 'scatter',
             lineWidth: 5,
             name: '品牌B',
-            data: [[0, 15], [25, 22], [50, 15], [75, 20], [100, 31], [125, 40], [150, 45], [175, 57], [200, 68], [225, 79], [250, 90], [275, 90], [300, 89]],
+            // data: [[0, 15], [25, 22], [50, 15], [75, 20], [100, 31], [125, 40], [150, 45], [175, 57], [200, 68], [225, 79], [250, 90], [275, 90], [300, 89]],
+            data: fakeData(-0.001, 0.6, 1, "dots"),
             marker: {
                 radius: 4,
                 symbol: 'circle'
             }
-        }]
+        }],
+         plotOptions: {
+            scatter: {
+                marker: {
+                    radius: 2,
+                    states: {
+                        hover: {
+                            enabled: true,
+                            lineColor: 'rgb(100,100,100)'
+                        }
+                    }
+                },
+                states: {
+                    hover: {
+                        marker: {
+                            enabled: false
+                        }
+                    }
+                },
+                tooltip: {
+                    headerFormat: '<b>{series.name}</b><br>',
+                    pointFormat: '{point.x} cm, {point.y} kg'
+                }
+            }
+        },
     });
 };
 var handleInteractiveChart = function () {
