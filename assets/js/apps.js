@@ -1,34 +1,3 @@
-/*   
-Template Name: PlaNex - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.2.0
-Version: 1.3.0
-Author: Sean Ngu
-Website: http://www.seantheme.com/color-admin-v1.3/
-    ----------------------------
-        APPS CONTENT TABLE
-    ----------------------------
-    
-    <!-- ======== GLOBAL SCRIPT SETTING ======== -->
-    01. Handle Scrollbar
-    
-    02. Handle Sidebar - Menu
-    03. Handle Sidebar - Mobile View Toggle
-    04. Handle Sidebar - Minify / Expand
-    05. Handle Page Load - Fade in
-    06. Handle Panel - Remove / Reload / Collapse / Expand
-    07. Handle Panel - Draggable
-    08. Handle Tooltip & Popover Activation
-    09. Handle Scroll to Top Button Activation
-    
-    <!-- ======== Added in V1.2 ======== -->
-    10. Handle Theme & Page Structure Configuration
-    11. Handle Theme Panel Expand
-	
-    <!-- ======== APPLICATION SETTING ======== -->
-    Application Controller
-*/
-
-
-
 /* 01. Handle Scrollbar
 ------------------------------------------------ */
 var handleSlimScroll = function() {
@@ -51,16 +20,19 @@ var handleSidebarMenu = function() {
     $('.sidebar .nav > .has-sub > a').click(function() {
         var target = $(this).next('.sub-menu');
         var otherMenu = '.sidebar .nav > li.has-sub > .sub-menu';
+        var target = $(this).next('.nav-header');
     
-    if ($('.page-sidebar-minified').length === 0) {
-        $(otherMenu).not(target).slideUp(250);
-        $(target).slideToggle(250);
-        }
+        if ($('.page-sidebar-minified').length === 0) {
+            $(otherMenu).not(target).slideUp(250);
+            $(target).slideToggle(250);
+            $(triangle).removeClass('.fa-caret-right');
+            $(triangle).addClass('.fa-caret-down');
+            }
     });
     $('.sidebar .nav > .has-sub .sub-menu li.has-sub > a').click(function() {
         if ($('.page-sidebar-minified').length === 0) {
-            var target = $(this).next('.sub-menu');
-            $(target).slideToggle(250);
+        var target = $(this).next('.sub-menu');
+        $(target).slideToggle(250);
         }
     });
 };
@@ -435,25 +407,25 @@ var handleAfterPageLoadAddClass = function() {
 ------------------------------------------------ */
 var App = function () {
 	"use strict";
-	
+
 	return {
 		//main function
 		init: function () {
-		
+
 			// slimscroll
 			handleSlimScroll();
-			
+
 			// sidebar
 			handleSidebarMenu();
 			handleMobileSidebarToggle();
 			handleSidebarMinify();
-			
+
 			// theme configuration
 			handleThemePageStructureControl();
 			handleThemePanelExpand();
-			
+
 			handleAfterPageLoadAddClass();
-			
+
 			handlePanelAction();
 			handleDraggablePanel();
 			handelTooltipPopoverActivation();

@@ -1,144 +1,19 @@
-/*   
-Template Name: PlaNex - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.2.0
-Version: 1.3.0
-Author: Sean Ngu
-Website: http://www.seantheme.com/color-admin-v1.3/
-
-::  1.0 General Reset & Setup
--------------------------------------------
-    1.1 Reset and overrides
-        
-::  2.0 Page Structure Settings
--------------------------------------------
-    2.1 Page Options
-    2.2 Page Loader
-    2.3 Header & header elements
-    2.4 Sidebar & sidebar elements
-    2.5 Content & content elements
-    2.6 Footer & footer elements
-    
-::  3.0 Component Setting
--------------------------------------------
-    3.1 Component - Form Elements
-    3.2 Component - Dropdown Menu
-    3.3 Component - Tooltip
-    3.4 Component - Alert
-    3.5 Component - Note Setting
-    3.6 Component - Badge & Label Setting
-    3.7 Component - Pagination & pager
-    3.8 Component - Progress bar
-    3.9 Component - Nav Setting
-    3.10 Component - Nav Tabs
-    3.11 Component - Nav Pills
-    3.12 Component - Tab Content
-    3.13 Component - Accordion Panel
-    3.14 Component - Button
-        3.14.1 Component - Button - Default
-        3.14.2 Component - Button - White
-        3.14.3 Component - Button - Inverse
-        3.14.4 Component - Button - Primary
-        3.14.5 Component - Button - Success
-        3.14.6 Component - Button - Warning
-        3.14.7 Component - Button - Danger
-        3.14.8 Component - Button - Info
-    3.15 Component - Panel
-    3.16.Component - Panel - Panel Expand
-    3.17 Component - Panel - Panel loading
-    3.18 Component - Modal Setting
-    3.19 Component - Media Object
-    3.20 Component - Table
-    3.21 Component - Well
-    3.22 Component - Jumbotron
-    3.23 Component - List Group
-    3.24 Component - Carousel
-
-::  4.0 Predefined CSS Setting
--------------------------------------------
-    4.1 Predefined Classes
-
-::  5.0 Plugins Setting
--------------------------------------------
-    5.0 Plugins Setting
-    5.1 Plugins - jQuery Draggable
-    5.2 Plugins - Slimscrollbar
-    5.3 Plugins - Gritter Notification
-    5.4 Plugins - Data Table
-    5.5 Plugins - Datepicker
-    5.6 Plugins - Colorpicker
-    5.7 Plugins - Bootstrap Timepicker
-    5.8 Plugins - jQuery Autocomplete
-    5.9 Plugins - Combobox
-    5.10 Plugins - Bootstrap Select
-    5.11 Plugins - TagIt
-    5.12 Plugins - Parsley
-    5.13 Plugins - CKEditor / wysihtml5
-    5.14 Plugins - Bootstrap Wizard
-    5.15 Plugins - Fullcalendar
-    5.16 Plugins - jVectorMap
-    5.17 Plugins - Flot Chart
-    5.18 Plugins - Sparkline
-    5.19 Plugins - Datepicker
-
-::  6.0 Page Setting
--------------------------------------------
-    6.1 Page - Search Result
-    6.2 Media Message
-    6.3 Widget Stats
-    6.4 Todolist
-    6.5 Page - Vector / Google Map
-    6.6 Page - Invoice
-    6.7 Page - Login
-    6.8 Page - Gallery
-    6.9 Page - Inbox
-    6.10 Page - 404 Error Page
-
-::  7.0 Update - V1.1 
--------------------------------------------
-    7.1 Timeline Setting
-    7.2 Coming Soon Page Setting
-
-::  8.0 Update - V1.2 
--------------------------------------------
-    8.1 Theme Panel Setting
-    8.2 Powerange Slider Setting
-    8.3 Plugins DateTimepicker
-    8.4 Plugins wysihtml5 Sandbox
-    8.5 Plugins Typeahead
-    8.6 Plugins Select 2 Choice
-    8.7 Login Page V2
-    
-::  9.0 Update - V1.3
--------------------------------------------
-    9.1 Widget Chart Setting
-    9.2 List Group Item Inverse Setting
-    9.3 Bootstrap Calendar Setting
-    9.4 Registered Users List Setting
-    9.5 Chat List Setting
-    9.6 Gallery v2 - Superbox Setting
-*/
-
-
-/* -------------------------------
-   1.0 General reset & setup
-------------------------------- */
-
-/* 1.1 Reset and overrides */
-
 body {
     background: url(../img/icons/index-bg.png) repeat-x;
     background-size: 1px 100%;
     background-attachment:fixed;
-    font-size: 12px;
-    font-family: 'Microsoft Yahei', 'Open Sans', "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    font-family:  Helvetica ,'Microsoft Yahei', 'Open Sans', "Helvetica Neue",Arial,sans-serif;
     color: #707478;
+    font-weight: 100;
 }
 h1, h2, h3, h4, h5, h6{
-    font-weight: 500;
+    /*font-weight: 500;*/
     color: #242a30;
 }
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
     font-size: 60%;
-    font-weight: 300;
+    /*font-weight: 300;*/
     color: #7c7f83;
 }
 a {
@@ -352,16 +227,19 @@ label {
 }
 .navbar-nav > li > a {
     line-height: 20px;
-    padding: 17px 15px;
+    padding: 17px 10px;
 }
 .navbar-default .navbar-nav > li > a {
     color: #585663;
 }
-.navbar-nav > li > a:hover,
-.navbar-nav > li > a:focus {
-    opacity: 0.6;
-    filter: alpha(opacity=60);
+.navbar-default .navbar-nav > li > a:hover{
+    color: #6f5f5c;
 }
+.navbar-nav > li > a:hover,
+/*.navbar-nav > li > a:focus {*/
+    /*opacity: 0.6;*/
+    /*filter: alpha(opacity=60);*/
+/*}*/
 .navbar-nav > .open > a, 
 .navbar-nav > .open > a:hover, 
 .navbar-nav > .open > a:focus {
@@ -484,11 +362,11 @@ label {
 .sidebar .nav > li > span {
     padding: 20px 20px 10px 20px;
     line-height: 20px;
-    color: #a8acb1;
+    color: rgba(255,255,255,.5);
     display: block;
     font-size: 12px;
 }
-.sidebar .nav > li > span:nth-child(n+1){border-top: 1px solid #7f7376;}
+.sidebar .nav > li > span:nth-child(n+1){border-top: 1px solid #7c7375;}
 .sidebar.sidebar-grid .nav > li > a {
     border-bottom: 1px solid #383f46;
     border-top: 1px solid #383f46;
@@ -614,7 +492,7 @@ label {
     background-color: #fff;
 }
 .sidebar .nav > li.nav-header a {
-    color: #6f5f5c;
+    color: #585663;
     padding: 0;
     margin: 0;
     display: inline;
@@ -622,6 +500,7 @@ label {
 .sidebar .nav > li.nav-header a:hover,
 .sidebar .nav > li.nav-header a:focus {
     background: none;
+    color: #6f5f5c;
     /*color: #fff;*/
 }
 .sidebar .nav > li.nav-header a i {
@@ -1605,23 +1484,23 @@ legend {
 
 /* 3.14.5 Component - Button - Success */
 
-.btn.btn-success {
-    color: #fff;
-    background: #00acac;
-    border-color: #00acac;
-}
-.btn.btn-success:hover, 
-.btn.btn-success:focus, 
-.btn.btn-success:active, 
-.btn.btn-success.active, 
-.open .dropdown-toggle.btn-success {
-    background: #008a8a;
-    border-color: #008a8a;
-}
-.btn-group .btn.btn-success:not(.active) + .btn.btn-success,
-.input-group-btn .btn.btn-success:not(.active) + .btn.btn-success {
-    border-left-color: #008a8a;
-}
+/*.btn.btn-success {*/
+    /*color: #fff;*/
+    /*background: #00acac;*/
+    /*border-color: #00acac;*/
+/*}*/
+/*.btn.btn-success:hover, */
+/*.btn.btn-success:focus, */
+/*.btn.btn-success:active, */
+/*.btn.btn-success.active, */
+/*.open .dropdown-toggle.btn-success {*/
+    /*background: #008a8a;*/
+    /*border-color: #008a8a;*/
+/*}*/
+/*.btn-group .btn.btn-success:not(.active) + .btn.btn-success,*/
+/*.input-group-btn .btn.btn-success:not(.active) + .btn.btn-success {*/
+    /*border-left-color: #008a8a;*/
+/*}*/
 
 
 /* 3.14.6 Component - Button - Warning */
@@ -1712,6 +1591,9 @@ legend {
 .panel-heading + .slimScrollDiv {
     border-top: 1px solid #eee;
 }
+.slimScrollDiv{
+    background-color: rgba(111,95,92,0.4);
+}
 .panel-heading-btn {
     float: right;
 }
@@ -1754,9 +1636,24 @@ legend {
     padding: 10px 15px;
     line-height: 20px;
 }
+.panel-heading .panel-heading-btn a{
+    height: 34px;
+    width: 34px;
+    line-height: 34px;
+    font-size: 14px;
+    font-weight: 100;
+    background-color: #d9d9db;
+    border-color: #d9d9db;
+    color: #6f5f5c;
+}
+.panel-heading .panel-heading-btn a:hover{
+    background-color: white;
+}
+.navbar-header .navbar-nav li a:hover{color: #e8ac6c;}
 .panel-title {
-    line-height: 20px;
-    font-size: 12px;
+    line-height: 34px;
+    font-size: 18px;
+    font-weight: 100;
 }
 .panel-title .accordion-toggle {
     margin: -10px -15px;
@@ -1939,9 +1836,9 @@ legend {
     border: none;
     -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
+    -webkit-border-radius: 13px;
+    -moz-border-radius: 13px;
+    border-radius: 13px;
 }
 .modal-header {
     padding: 12px 15px;
@@ -2205,7 +2102,9 @@ a.list-group-item.active:focus {
 
 /* 4.1 Predefined Classes */
 
-.row { margin: 0 -10px; }
+.row {
+    margin: 0 -10px;
+}
 .row > [class*="col-"] {  padding: 0 10px; }
 
 .row.row-space-0 { margin: 0; }
@@ -2240,6 +2139,8 @@ a.list-group-item.active:focus {
 .row.row-space-26 > [class*="col-"] {  padding: 0 13px; }
 .row.row-space-28 > [class*="col-"] {  padding: 0 14px; }
 .row.row-space-30 > [class*="col-"] {  padding: 0 15px; }
+
+.bgcolor{ background: -webkit-gradient(linear, left top, left bottom, from(#44434f), color-stop(0.5, #554a50), to(#4a4a55));}
 
 .semi-bold { font-weight: 600; }
 
@@ -2513,36 +2414,36 @@ a.text-inverse:hover,
 a.text-inverse:focus { 
     color: #575d63 !important; 
 }
-.text-success { color: #00acac !important; }
-a.text-success:hover,
-a.text-success:focus { 
-    color: #33bdbd !important; 
-}
-.text-info { color: #49b6d6 !important; }
-a.text-info:hover,
-a.text-info:focus { 
-    color: #6dc5de !important; 
-}
-.text-primary { color: #348fe2 !important; }
-a.text-primary:hover,
-a.text-primary:focus { 
-    color: #5da5e8 !important; 
-}
-.text-warning { color: #f59c1a !important; }
-a.text-warning:hover,
-a.text-warning:focus { 
-    color: #f7b048 !important; 
-}
-.text-danger { color: #ff5b57 !important; }
-a.text-danger:hover,
-a.text-danger:focus { 
-    color: #ff7c79 !important; 
-}
-.text-white { color: #fff !important; }
-a.text-white:hover,
-a.text-white:focus { 
-    color: #f0f3f4 !important; 
-}
+/*.text-success { color: #00acac !important; }*/
+/*a.text-success:hover,*/
+/*a.text-success:focus { */
+    /*color: #33bdbd !important; */
+/*}*/
+/*.text-info { color: #49b6d6 !important; }*/
+/*a.text-info:hover,*/
+/*a.text-info:focus { */
+    /*color: #6dc5de !important; */
+/*}*/
+/*.text-primary { color: #348fe2 !important; }*/
+/*a.text-primary:hover,*/
+/*a.text-primary:focus { */
+    /*color: #5da5e8 !important; */
+/*}*/
+/*.text-warning { color: #f59c1a !important; }*/
+/*a.text-warning:hover,*/
+/*a.text-warning:focus { */
+    /*color: #f7b048 !important; */
+/*}*/
+/*.text-danger { color: #ff5b57 !important; }*/
+/*a.text-danger:hover,*/
+/*a.text-danger:focus { */
+    /*color: #ff7c79 !important; */
+/*}*/
+/*.text-white { color: #fff !important; }*/
+/*a.text-white:hover,*/
+/*a.text-white:focus { */
+    /*color: #f0f3f4 !important; */
+/*}*/
 
 .bg-white { background: #ffffff !important; }
 .bg-silver-lighter { background: #f4f6f7 !important; }
@@ -3314,13 +3215,13 @@ ul.tagit.inverse li.tagit-choice .tagit-close:focus .ui-icon-close:before {
     -webkit-border-radius: 4px !important;
     -moz-border-radius: 4px !important;
     border-radius: 4px !important;
-    border-width: 6px !important;
+    border-width: 8px !important;
     height: 10px!important;
     width: 10px!important;
     margin: 5px 0;
 }
 .tickLabel,.legendLabel {
-    font-size: 11px !important;
+    font-size: 14px !important;
 }
 .tickLabel {
     color: #707478 !important;
@@ -3331,7 +3232,7 @@ ul.tagit.inverse li.tagit-choice .tagit-close:focus .ui-icon-close:before {
     border: 0;
     padding: 6px 10px 7px;
     color: #fff;
-    font-size: 11px;
+    font-size: 14px;
     background: url(../img/transparent/black-0.8.png);
     background-color: rgba(0,0,0,0.8);
     border-radius: 5px;

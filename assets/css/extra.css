@@ -1,0 +1,37 @@
+/*yarkb*/
+a:hover{
+    color: #e8ac6c;
+}
+.panel-heading .panel-heading-btn a:hover{
+
+}
+.mostyle{
+    background-color: #221d1c;
+    padding: 10px;
+    font-weight: 100;
+    color: #ffffff;
+}
+.nav:first-child > li{
+    cursor: pointer;
+}
+.panel .panel-heading ul {
+    right: 60px;
+    top: 55px;
+    position: absolute;
+    width: 120px;
+    background-color: #221d1c;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    padding: 10px 0;
+    z-index: 100;
+}
+.panel .panel-heading ul li {
+    list-style: none;
+    line-height: 30px;
+    color: white;
+    text-align: center;
+}
+.hidden{ visibility: hidden;}
+.show{visibility: visible;}
+.tooltip .pointFormat{display: block; float: right;}
+.tooltip .headerFormat{display: block; float: left;}

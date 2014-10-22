@@ -1,10 +1,3 @@
-/*   
-Template Name: PlaNex - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.2.0
-Version: 1.3.0
-Author: Sean Ngu
-Website: http://www.seantheme.com/color-admin-v1.3/
-*/
-
 var blue		= '#348fe2',
     blueLight	= '#5da5e8',
     blueDark	= '#1993E4',
@@ -14,9 +7,9 @@ var blue		= '#348fe2',
     green		= '#00acac',
     greenLight	= '#33bdbd',
     greenDark	= '#008a8a',
-    orange		= '#f59c1a',
-    orangeLight	= '#e8ac6c',
-    orangeDark	= '#c47d15',
+    orange		= '#e8ac6c',
+    orangeLight	= '#fbc58b',
+    orangeDark	= '#d89145',
     dark		= '#2d353c',
     grey		= '#c3c6cb',
     purple		= '#727cb6',
@@ -24,7 +17,7 @@ var blue		= '#348fe2',
     purpleDark	= '#5b6392',
     red         = '#ff5b57';
 var makeMapLegends = function(colors, colorAxis, elemId){
-    var tableHtml = $('<table style="font-size:smaller;color:#545454; position: absolute; bottom: 40px;"><tbody>' + 
+    var tableHtml = $('<table style="font-size:smaller;color:#545454; position: absolute; bottom: 40px;"><tbody>' +
                     '</tbody></table>');
     for(var i = 0; i < colors.length; i++){
         // var se = colors[i];
@@ -342,7 +335,8 @@ var handleVectorMapHigh = function(){
     $('#world-map').highcharts('Map', {
         chart:{
             backgroundColor: 'transparent',
-            borderColor: '#676a72',
+//            borderColor: '#676a72',
+            border: '0',
             events:{
                 load: function(events){
                     // alert(this);
@@ -376,7 +370,7 @@ var handleVectorMapHigh = function(){
         // tooltip:{
         //     enabled: false
         // },
-        colors: ['#676b74', '#ae8151', '#303645'],
+        colors: ['#908c8a', '#e9e6da', '#635e63'],
         colorAxis: {
                     dataClassColor: 'category',
                     dataClasses: [{
@@ -399,7 +393,7 @@ var handleVectorMapHigh = function(){
             // name: 'Random data',
             states: {
                 hover: {
-                    color: '#BADA55'
+                    color: '#e9ac6d'
                 }
             },
             dataLabels: {
@@ -408,13 +402,14 @@ var handleVectorMapHigh = function(){
         }]
     });
 };
+
 var makeLegends = function(series, elemId){
     var tableHtml = $('<table style="font-size:smaller;color:#545454"><tbody>' + 
                     '</tbody></table>');
     for(var i = 0; i < series.length; i++){
         var se = series[i];
         if(se.userOptions.regression){
-            var tr = $('<tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px">' + 
+            var tr = $('<tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px">' +
                      '<div style="width:4px;height:0;border:5px solid #fff;overflow:hidden"></div>' +
                      '</div></td><td class="legendLabel" style="color: #fff"></td></tr>');
             tr.find('.legendColorBox > div > div').css("border", "5px solid " + se.color);
@@ -486,7 +481,8 @@ var handleInteractiveChartHigh = function(){
         legend:{
             x: 1000,
             floating: true,
-            align: 'right'
+            align: 'right',
+            borderWidth: 0
         },
         series: [{
             color: orange,
@@ -515,10 +511,13 @@ var handleInteractiveChartHigh = function(){
                 symbol: 'circle'
             },
             tooltip: {
-                headerFormat: '',
-                pointFormat: '{point.y}% REACH, <p>{point.x}</p> GRP',
+//                headerFormat: '',
+//                pointFormat: '{point.y}% REACH, <p>{point.x}</p> GRP',
+//                pointFormat: '{point.y}% REACH, <p>{point.x}</p> GRP',
+                headerFormat: '{point.y}% <br/>REACH <br/>',
+                pointFormat: '{point.x}% <br/>GRP <br/>',
                 backgroundColor: "#000",
-                shadow: true
+                shadow: true,
             }
         }],
          plotOptions: {
@@ -528,7 +527,8 @@ var handleInteractiveChartHigh = function(){
                     states: {
                         hover: {
                             enabled: true,
-                            lineColor: 'rgb(100,100,100)'
+//                            lineColor: 'rgb(100,100,100)'
+                            borderWidth: 0,
                         }
                     }
                 },
@@ -654,7 +654,7 @@ var handleDonutChartHigh = function(){
             }
         },
         pane: {
-            size: '90%',
+            size: '80%',
             // 计算： startAngle: (0.5 - data) * 360 * 0.5
             //        endAngle: startAngle + 360
             startAngle: (0.5 - 0.82) * 360 * 0.5,
@@ -692,7 +692,7 @@ var handleDonutChartHigh = function(){
                 y: -60,
                 format: '<div style="text-align:center"><span style="font-size:80px;color: #e8ac6c;">{y}</span>' +'<span style="font-size:14px;color:#fff">%</span></div>'
             }
-        },]
+        }]
     }));
 
     // The Sohu gauge
@@ -709,7 +709,7 @@ var handleDonutChartHigh = function(){
         },
 
         pane: {
-            size: '80%',
+            size: '100%',
             // 计算： startAngle: (0.5 - data) * 360 * 0.5
             //        endAngle: startAngle + 360
             startAngle: (0.5 - 0.1) * 360 * 0.5,
@@ -741,16 +741,9 @@ var Dashboard = function () {
     return {
         //main function
         init: function () {
-            // handleDashboardGritterNotification();
             handleInteractiveChartHigh();
-            // handleInteractiveChart();
-            // handleDashboardSparkline();
-            // handleDonutChart();
-            // handleDashboardTodolist();
             handleDonutChartHigh();
-            // handleVectorMap();
             handleVectorMapHigh();
-            // handleDashboardDatepicker();
             handleSideBarToggle();
         }
     };

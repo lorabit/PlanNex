@@ -2875,8 +2875,8 @@ SVGRenderer.prototype = {
 
 	getStyle: function (style) {
 		return (this.style = extend({
-			fontFamily: '"Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, sans-serif', // default font
-			fontSize: '12px'
+			fontFamily: ' Arial, Helvetica, sans-serif, "Lucida Grande", "Lucida Sans Unicode",', // default font
+			fontSize: '18px'
 		}, style));
 	},
 
