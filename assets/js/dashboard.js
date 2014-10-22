@@ -479,10 +479,11 @@ var handleInteractiveChartHigh = function(){
             }
         },
         legend:{
-            x: 1000,
-            floating: true,
+            // x: 1000,
+            // floating: true,
             align: 'right',
-            borderWidth: 0
+            borderWidth: 0,
+            layout: 'vertical'
         },
         series: [{
             color: orange,
@@ -501,19 +502,16 @@ var handleInteractiveChartHigh = function(){
             // },
         }, {
             color: orange,
-            // type: 'scatter',
-            // lineWidth: 5,
             name: '品牌B',
-            // data: [[0, 15], [25, 22], [50, 15], [75, 20], [100, 31], [125, 40], [150, 45], [175, 57], [200, 68], [225, 79], [250, 90], [275, 90], [300, 89]],
             data: fakeData(-0.001, 0.6, 1, "dots"),
             marker: {
                 radius: 2,
                 symbol: 'circle'
             },
+            legend: {
+                enabled: false
+            },
             tooltip: {
-//                headerFormat: '',
-//                pointFormat: '{point.y}% REACH, <p>{point.x}</p> GRP',
-//                pointFormat: '{point.y}% REACH, <p>{point.x}</p> GRP',
                 headerFormat: '{point.y}% <br/>REACH <br/>',
                 pointFormat: '{point.x}% <br/>GRP <br/>',
                 backgroundColor: "#000",
@@ -647,7 +645,7 @@ var handleDonutChartHigh = function(){
         yAxis: {
             title: {
                 text: 'Youku',
-                y: 120,
+                y: 100,
                 style: {
                     color:"#fff"
                 }
@@ -709,7 +707,7 @@ var handleDonutChartHigh = function(){
         },
 
         pane: {
-            size: '100%',
+            size: '80%',
             // 计算： startAngle: (0.5 - data) * 360 * 0.5
             //        endAngle: startAngle + 360
             startAngle: (0.5 - 0.1) * 360 * 0.5,
