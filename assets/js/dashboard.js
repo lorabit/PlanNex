@@ -761,7 +761,7 @@ var handleDonutChartHigh = function(){
             backgroundColor: 'transparent',
             type: 'solidgauge'
         },
-        colors: ['#fff'],
+        colors: ['#fff', '#e8ac6c', '#9b877b', '#695a59'],
         title: null,
         credits: {
             enabled: false
@@ -825,7 +825,7 @@ var handleDonutChartHigh = function(){
             title: {
                 text: 'pptv',
                 offset: 10,
-                y: 140,
+                y: 65,
                 style: {
                     color:"#fff"
                 }
@@ -858,7 +858,7 @@ var handleDonutChartHigh = function(){
         yAxis: {
             title: {
                 text: 'Youku',
-                y: 200,
+                y: 120,
                 style: {
                     color:"#fff"
                 }
@@ -879,6 +879,15 @@ var handleDonutChartHigh = function(){
                 y: -60,
                 format: '<div style="text-align:center"><span style="font-size:80px;color: #e8ac6c;">{y}</span>' +'<span style="font-size:14px;color:#fff">%</span></div>'
             }
+        },{
+            data: [6],
+            color: '#e8ac6c',
+            innerRadius: '85%',
+            outerRadius: '95%',
+            startAngle: (0.5 - 0.86) * 360 * 0.5 + 0.8 * 360,
+            dataLabels: {
+                enabled: false
+            }
         }]
     }));
 
@@ -888,7 +897,7 @@ var handleDonutChartHigh = function(){
             title: {
                 text: 'Sohu',
                 offset: 10,
-                y: 140,
+                y: 65,
                 style: {
                     color:"#fff"
                 }
