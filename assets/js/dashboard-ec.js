@@ -440,6 +440,181 @@ var fakeData = function(a, b, c, type){
         return data;
     }
 };
+
+var handleInteractiveChartEc = function(){
+    "use strict";
+    var inChart = echarts.init(document.getElementById('interactive-chart'));
+    var option = {
+        xAxis: {
+            title: '',
+            min: 0,
+            max: 350,
+            tickColor: '#7d6f71',
+            lineColor: '#7d6f71',
+            tickPosition: 'inside',
+            labels: {
+                style: {
+                    color: '#fff'
+                }
+            }
+        },
+        yAxis: {
+            title: '',
+            min: 0,
+            max: 100,
+            gridLineColor: '#7d6f71',
+            labels: {
+                style: {
+                    color: '#fff'
+                }
+            }
+        },
+        title: {
+            text: ''
+        },
+        chart: {
+            backgroundColor: 'transparent',
+            type: 'scatter',
+            events:{
+                load: function(events){
+                    // alert(this);
+                    
+                    var _this = this;
+                    var series = _this.series;
+                    makeLegends(series, "#interactive-chart-legend");
+                }
+            }
+        },
+        legend:{
+            x: 1000,
+            floating: true,
+            align: 'right'
+        },
+        series: [{
+            color: orange,
+            lineWidth: 5,
+            name: '品牌A',
+            data: fakeData(-0.001, 0.6, 1, "regression"),
+            regression: true,
+            marker: {
+                enabled: false
+            },
+        }, {
+            color: orange,
+            name: '品牌B',
+            data: fakeData(-0.001, 0.6, 1, "dots"),
+            marker: {
+                radius: 2,
+                symbol: 'circle'
+            },
+            tooltip: {
+                headerFormat: '',
+                pointFormat: '{point.y}% REACH, <p>{point.x}</p> GRP',
+                backgroundColor: "#000",
+                shadow: true
+            }
+        }],
+         plotOptions: {
+            scatter: {
+                marker: {
+                    radius: 2,
+                    states: {
+                        hover: {
+                            enabled: true,
+                            lineColor: 'rgb(100,100,100)'
+                        }
+                    }
+                },
+                states: {
+                    hover: {
+                        marker: {
+                            enabled: false
+                        }
+                    }
+                }
+            }
+        },
+    };
+    option = {
+        title : {
+            text: '未来一周气温变化',
+            subtext: '纯属虚构'
+        },
+        tooltip : {
+            trigger: 'axis'
+        },
+        legend: {
+            data:['最高气温','最低气温']
+        },
+        toolbox: {
+            show : true,
+            feature : {
+                mark : {show: true},
+                dataView : {show: true, readOnly: false},
+                magicType : {show: true, type: ['line', 'bar']},
+                restore : {show: true},
+                saveAsImage : {show: true}
+            }
+        },
+        calculable : true,
+        xAxis: [{
+            type : 'category',
+            boundaryGap : false,
+            data : ['周一','周二','周三','周四','周五','周六','周日']
+            tickColor: '#7d6f71',
+            lineColor: '#7d6f71',
+            tickPosition: 'inside',
+            labels: {
+                style: {
+                    color: '#fff'
+                }
+            }
+        }],
+        yAxis : [
+            {
+                type : 'value',
+                axisLabel : {
+                    formatter: '{value} °C'
+                }
+            }
+        ],
+        series : [
+            {
+                name:'最高气温',
+                type:'line',
+                data:[11, 11, 15, 13, 12, 13, 10],
+                markPoint : {
+                    data : [
+                        {type : 'max', name: '最大值'},
+                        {type : 'min', name: '最小值'}
+                    ]
+                },
+                markLine : {
+                    data : [
+                        {type : 'average', name: '平均值'}
+                    ]
+                }
+            },
+            {
+                name:'最低气温',
+                type:'line',
+                data:[1, -2, 2, 5, 3, 2, 0],
+                markPoint : {
+                    data : [
+                        {name : '周最低', value : -2, xAxis: 1, yAxis: -1.5}
+                    ]
+                },
+                markLine : {
+                    data : [
+                        {type : 'average', name : '平均值'}
+                    ]
+                }
+            }
+        ]
+    };
+    inChart.setOption(option);
+};
+
 var handleInteractiveChartHigh = function(){
     "use strict";
     $('#interactive-chart').highcharts({
@@ -544,13 +719,187 @@ var handleInteractiveChartHigh = function(){
     });
 };
 
+var handleDonutChartHighPie = function(){
+    var gaugeOptions = {
+        chart: {
+            // background: 
+            plotBackgroundColor: null,
+            plotBorderWidth: 0,
+            plotShadow: false
+        },
+        colors: ['#fff', '#e8ac6c', '#9b877b', '#695a59'],
+        title: null,
+        credits: {
+            enabled: false
+        },
+        pane: {
+            center: ['50%', '50%'], 
+            // size: '40%',
+            background: {
+                backgroundColor: 'transparent',
+                innerRadius: '85%',
+                outerRadius: '95%',
+                borderWidth: 0
+            },
+        },
+
+        tooltip: {
+            enabled: false
+        },
+
+        xAxis: {
+            plotLines: [{
+                width: 100
+            }]
+        },
+        // the value axis
+        yAxis: {
+            min: 0,
+            max: 100,
+            lineWidth: 0,
+            minorTickInterval: null,
+            tickPixelInterval: 400,
+            tickWidth: 0,
+            // title: {
+            //     y: 120
+            // },
+            labels: {
+                enabled: false
+            }
+        },
+
+        plotOptions: {
+            pie: {
+                dataLabels: {
+                    enabled: true,
+                    distance: -50,
+                    style: {
+                        fontWeight: 'bold',
+                        color: 'white',
+                        textShadow: '0px 1px 2px black'
+                    }
+                },
+                startAngle: -90,
+                endAngle: 90,
+                center: ['50%', '75%']
+            }
+        }
+    };
+
+    
+    // The pptv gauge
+    $('#donut-chart-1').highcharts(Highcharts.merge(gaugeOptions, {
+        yAxis: {
+            title: {
+                text: 'pptv',
+                offset: 10,
+                y: 65,
+                style: {
+                    color:"#fff"
+                }
+            }
+        },
+
+        pane: {
+            size: '80%',
+            // 计算： startAngle: (0.5 - data) * 360 * 0.5
+            //        endAngle: startAngle + 360
+            startAngle: (0.5 - 0.1) * 360 * 0.5,
+            endAngle:  (0.5 - 0.1) * 360 * 0.5 + 360 ,
+
+        },
+
+        series: [{
+            name: 'pptv',
+            data: [10],
+            innerRadius: '80%',
+            dataLabels: {
+                y: -30,
+                format: '<div style="text-align:center"><span style="font-size:40px;color: #e8ac6c;">{y}</span>' +'<span style="font-size:14px;color:#fff">%</span></div>'
+            }
+        }]
+
+    }));
+
+    // The Youku gauge
+    $('#donut-chart-2').highcharts(Highcharts.merge(gaugeOptions, {
+        yAxis: {
+            title: {
+                text: 'Youku',
+                y: 120,
+                style: {
+                    color:"#fff"
+                }
+            }
+        },
+        pane: {
+            size: '90%',
+            // 计算： startAngle: (0.5 - data) * 360 * 0.5
+            //        endAngle: startAngle + 360
+            startAngle: (0.5 - 0.86) * 360 * 0.5,
+            endAngle:  (0.5 - 0.86) * 360 * 0.5 + 360,
+        },
+        series: [{
+            name: 'Youku',
+            data: [86],
+            innerRadius: '80%',
+            dataLabels: {
+                y: -60,
+                format: '<div style="text-align:center"><span style="font-size:80px;color: #e8ac6c;">{y}</span>' +'<span style="font-size:14px;color:#fff">%</span></div>'
+            }
+        },{
+            data: [6],
+            color: '#e8ac6c',
+            innerRadius: '85%',
+            outerRadius: '95%',
+            startAngle: (0.5 - 0.86) * 360 * 0.5 + 0.8 * 360,
+            dataLabels: {
+                enabled: false
+            }
+        }]
+    }));
+
+    // The Sohu gauge
+    $('#donut-chart-3').highcharts(Highcharts.merge(gaugeOptions, {
+        yAxis: {
+            title: {
+                text: 'Sohu',
+                offset: 10,
+                y: 65,
+                style: {
+                    color:"#fff"
+                }
+            }
+        },
+
+        pane: {
+            size: '80%',
+            // 计算： startAngle: (0.5 - data) * 360 * 0.5
+            //        endAngle: startAngle + 360
+            startAngle: (0.5 - 0.1) * 360 * 0.5,
+            endAngle:  (0.5 - 0.1) * 360 * 0.5 + 360 ,
+        },
+
+        series: [{
+            name: 'Sohu',
+            data: [10],
+            innerRadius: '80%',
+            dataLabels: {
+                y: -30,
+                format: '<div style="text-align:center"><span style="font-size:40px;color: #e8ac6c;">{y}</span>' +'<span style="font-size:14px;color:#fff">%</span></div>'
+            }
+        }]
+
+    }));
+
+}
 var handleDonutChartHigh = function(){
     var gaugeOptions = {
         chart: {
             backgroundColor: 'transparent',
             type: 'solidgauge'
         },
-        colors: ['#fff', '#6a5a59', '#9b877b', '#e8ac6c'],
+        colors: ['#fff', '#e8ac6c', '#9b877b', '#695a59'],
         title: null,
         credits: {
             enabled: false
@@ -657,42 +1006,30 @@ var handleDonutChartHigh = function(){
             size: '90%',
             // 计算： startAngle: (0.5 - data) * 360 * 0.5
             //        endAngle: startAngle + 360
-            startAngle: (0.5 - 0.82) * 360 * 0.5,
-            endAngle:  (0.5 - 0.82) * 360 * 0.5 + 360,
+            startAngle: (0.5 - 0.86) * 360 * 0.5,
+            endAngle:  (0.5 - 0.86) * 360 * 0.5 + 360,
         },
         series: [{
-            data: [82, 90, 94, 100],
-            color: '#e8ac6c',
-            innerRadius: '85%',
-            radius: '95%',
-            dataLabels: {
-                enabled: false
-            }
-        },{
-            data: [82, 90, 94],
-            color: '#e8ac6c',
-            innerRadius: '85%',
-            radius: '95%',
-            dataLabels: {
-                enabled: false
-            }
-        },{
-            data: [82, 90],
-            color: '#e8ac6c',
-            innerRadius: '85%',
-            radius: '95%',
-            dataLabels: {
-                enabled: false
-            }
-        },{
             name: 'Youku',
-            data: [82],
+            data: [{
+                    y: 86
+                }, {
+                    y: 6}, 4, 2],
             innerRadius: '80%',
             dataLabels: {
                 y: -60,
                 format: '<div style="text-align:center"><span style="font-size:80px;color: #e8ac6c;">{y}</span>' +'<span style="font-size:14px;color:#fff">%</span></div>'
             }
-        },]
+        },{
+            data: [6],
+            color: '#e8ac6c',
+            innerRadius: '85%',
+            outerRadius: '95%',
+            startAngle: (0.5 - 0.86) * 360 * 0.5 + 0.8 * 360,
+            dataLabels: {
+                enabled: false
+            }
+        }]
     }));
 
     // The Sohu gauge
@@ -730,6 +1067,7 @@ var handleDonutChartHigh = function(){
 
 }
 
+
 var handleSideBarToggle = function(){
     $("#sidebar").find(".nav-header").on("click", function(){
         $("#page-container").toggleClass("page-sidebar-fixed-off");
@@ -741,17 +1079,10 @@ var Dashboard = function () {
     return {
         //main function
         init: function () {
-            // handleDashboardGritterNotification();
-            handleInteractiveChartHigh();
-            // handleInteractiveChart();
-            // handleDashboardSparkline();
-            // handleDonutChart();
-            // handleDashboardTodolist();
-            handleDonutChartHigh();
-            // handleVectorMap();
-            handleVectorMapHigh();
-            // handleDashboardDatepicker();
-            handleSideBarToggle();
+            handleInteractiveChartEc();
+            // handleDonutChartHigh();
+            // handleVectorMapHigh();
+            // handleSideBarToggle();
         }
     };
 }();
