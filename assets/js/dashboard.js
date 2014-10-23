@@ -1,3 +1,10 @@
+/*   
+Template Name: PlaNex - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.2.0
+Version: 1.3.0
+Author: Sean Ngu
+Website: http://www.seantheme.com/color-admin-v1.3/
+*/
+
 var blue		= '#348fe2',
     blueLight	= '#5da5e8',
     blueDark	= '#1993E4',
@@ -7,9 +14,9 @@ var blue		= '#348fe2',
     green		= '#00acac',
     greenLight	= '#33bdbd',
     greenDark	= '#008a8a',
-    orange		= '#e8ac6c',
-    orangeLight	= '#fbc58b',
-    orangeDark	= '#d89145',
+    orange		= '#f59c1a',
+    orangeLight	= '#e8ac6c',
+    orangeDark	= '#c47d15',
     dark		= '#2d353c',
     grey		= '#c3c6cb',
     purple		= '#727cb6',
@@ -17,7 +24,7 @@ var blue		= '#348fe2',
     purpleDark	= '#5b6392',
     red         = '#ff5b57';
 var makeMapLegends = function(colors, colorAxis, elemId){
-    var tableHtml = $('<table style="font-size:smaller;color:#545454; position: absolute; bottom: 40px;"><tbody>' +
+    var tableHtml = $('<table style="font-size:smaller;color:#545454; position: absolute; bottom: 40px;"><tbody>' + 
                     '</tbody></table>');
     for(var i = 0; i < colors.length; i++){
         // var se = colors[i];
@@ -335,8 +342,7 @@ var handleVectorMapHigh = function(){
     $('#world-map').highcharts('Map', {
         chart:{
             backgroundColor: 'transparent',
-//            borderColor: '#676a72',
-            border: '0',
+            borderColor: '#676a72',
             events:{
                 load: function(events){
                     // alert(this);
@@ -370,7 +376,7 @@ var handleVectorMapHigh = function(){
         // tooltip:{
         //     enabled: false
         // },
-        colors: ['#908c8a', '#e9e6da', '#635e63'],
+        colors: ['#676b74', '#ae8151', '#303645'],
         colorAxis: {
                     dataClassColor: 'category',
                     dataClasses: [{
@@ -393,7 +399,7 @@ var handleVectorMapHigh = function(){
             // name: 'Random data',
             states: {
                 hover: {
-                    color: '#e9ac6d'
+                    color: '#BADA55'
                 }
             },
             dataLabels: {
@@ -402,14 +408,13 @@ var handleVectorMapHigh = function(){
         }]
     });
 };
-
 var makeLegends = function(series, elemId){
     var tableHtml = $('<table style="font-size:smaller;color:#545454"><tbody>' + 
                     '</tbody></table>');
     for(var i = 0; i < series.length; i++){
         var se = series[i];
         if(se.userOptions.regression){
-            var tr = $('<tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px">' +
+            var tr = $('<tr><td class="legendColorBox"><div style="border:1px solid #ccc;padding:1px">' + 
                      '<div style="width:4px;height:0;border:5px solid #fff;overflow:hidden"></div>' +
                      '</div></td><td class="legendLabel" style="color: #fff"></td></tr>');
             tr.find('.legendColorBox > div > div').css("border", "5px solid " + se.color);
@@ -478,12 +483,49 @@ var handleInteractiveChartHigh = function(){
                 }
             }
         },
+        // labels: {
+        //     items: [{
+        //         html: '<span class="dt">时间范围   </span><span class="dd"> 1-3月</span>',
+        //         style: {
+        //             left: '850%',
+        //             top: '16px'
+        //         }
+        //     },{
+        //         html: '<span class="dt">地  域   </span><span class="dd"> 南京</span>',
+        //         style: {
+        //             left: '850%',
+        //             top: '45px'
+        //         }
+        //     },{
+        //         html: '<span class="dt">目标人群   </span><span class="dd"> 青少年</span>',
+        //         style: {
+        //             left: '850%',
+        //             top: '70px'
+        //         }   
+        //     },{
+        //         html: '<span class="dt">频 次   </span><span class="dd"> 8</span>',
+        //         style: {
+        //             left: '850%',
+        //             top: '95px'
+        //         }
+        //     },],
+        //     style: {
+        //         color: '#fff',
+        //         'font-size' : '14'
+        //     }                          
+        // },
         legend:{
-            // x: 1000,
-            // floating: true,
-            align: 'right',
-            borderWidth: 0,
-            layout: 'vertical'
+            x: 1000,
+            floating: true,
+            // backgroundColor: '#fff',
+            // layout: 'vertical',
+            // width: 140,
+            // itemWidth: 100,
+            // symbolHeight: 2400,
+            // symbolPadding: 15,
+            // symbolRadius: 1000,
+            // useHTML: true,
+            align: 'right'
         },
         series: [{
             color: orange,
@@ -502,20 +544,20 @@ var handleInteractiveChartHigh = function(){
             // },
         }, {
             color: orange,
+            // type: 'scatter',
+            // lineWidth: 5,
             name: '品牌B',
+            // data: [[0, 15], [25, 22], [50, 15], [75, 20], [100, 31], [125, 40], [150, 45], [175, 57], [200, 68], [225, 79], [250, 90], [275, 90], [300, 89]],
             data: fakeData(-0.001, 0.6, 1, "dots"),
             marker: {
                 radius: 2,
                 symbol: 'circle'
             },
-            legend: {
-                enabled: false
-            },
             tooltip: {
-                headerFormat: '{point.y}% <br/>REACH <br/>',
-                pointFormat: '{point.x}% <br/>GRP <br/>',
+                headerFormat: '',
+                pointFormat: '{point.y}% REACH, <p>{point.x}</p> GRP',
                 backgroundColor: "#000",
-                shadow: true,
+                shadow: true
             }
         }],
          plotOptions: {
@@ -525,8 +567,7 @@ var handleInteractiveChartHigh = function(){
                     states: {
                         hover: {
                             enabled: true,
-//                            lineColor: 'rgb(100,100,100)'
-                            borderWidth: 0,
+                            lineColor: 'rgb(100,100,100)'
                         }
                     }
                 },
@@ -645,14 +686,14 @@ var handleDonutChartHigh = function(){
         yAxis: {
             title: {
                 text: 'Youku',
-                y: 100,
+                y: 120,
                 style: {
                     color:"#fff"
                 }
             }
         },
         pane: {
-            size: '80%',
+            size: '90%',
             // 计算： startAngle: (0.5 - data) * 360 * 0.5
             //        endAngle: startAngle + 360
             startAngle: (0.5 - 0.82) * 360 * 0.5,
@@ -690,7 +731,7 @@ var handleDonutChartHigh = function(){
                 y: -60,
                 format: '<div style="text-align:center"><span style="font-size:80px;color: #e8ac6c;">{y}</span>' +'<span style="font-size:14px;color:#fff">%</span></div>'
             }
-        }]
+        },]
     }));
 
     // The Sohu gauge
@@ -739,9 +780,16 @@ var Dashboard = function () {
     return {
         //main function
         init: function () {
+            // handleDashboardGritterNotification();
             handleInteractiveChartHigh();
+            // handleInteractiveChart();
+            // handleDashboardSparkline();
+            // handleDonutChart();
+            // handleDashboardTodolist();
             handleDonutChartHigh();
+            // handleVectorMap();
             handleVectorMapHigh();
+            // handleDashboardDatepicker();
             handleSideBarToggle();
         }
     };

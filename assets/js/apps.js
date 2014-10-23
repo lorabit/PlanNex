@@ -402,6 +402,29 @@ var handleAfterPageLoadAddClass = function() {
     }
 };
 
+/* 13. Handle Download section toggle 
+------------------------------------------------ */
+var handleDownloadToggle = function(){
+    $('[data-click=download-toggle]').on("click", function(){
+        $(this).parents(".panel-heading-btn").find(".btn-download").toggle();
+    });
+    $('[data-click=download-img]').on("click", function(){
+        var chart = $(this).parents(".panel").find("[data-chart]").highcharts();
+        chart.exportChart({
+            type: 'image/png',
+            filename: 'chart'
+        });
+        $(this).parents(".panel-heading-btn").find(".btn-download").toggle();
+    });
+    $('[data-click=download-pdf]').on("click", function(){
+        var chart = $(this).parents(".panel").find("[data-chart]").highcharts();
+        chart.exportChart({
+            type: 'application/pdf',
+            filename: 'chart'
+        });
+        $(this).parents(".panel-heading-btn").find(".btn-download").toggle();
+    });
+};
 
 /* Application Controller
 ------------------------------------------------ */
@@ -431,6 +454,9 @@ var App = function () {
 			handelTooltipPopoverActivation();
 			handleScrollToTopButton();
 			handlePageContentView();
+
+            // customizing
+            handleDownloadToggle();
 		}
   };
 }();

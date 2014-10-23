@@ -20,13 +20,14 @@
 	<link href="assets/css/theme/default.css" rel="stylesheet" id="theme" />
 	<!-- ================== END BASE CSS STYLE ================== -->
 	<!-- ================== BEGIN CUSOMIZE CSS STYLE ================== -->
-	<link href="assets/css/customize.css" rel="stylesheet" />
+    <link href="assets/css/customize.css" rel="stylesheet" />
+    <link href="assets/css/extra.css" rel="stylesheet" />
 	<!-- ================== END CUSOMIZE CSS STYLE ================== -->
 	<!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
-	<link href="assets/plugins/jquery-jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" />
-	<link href="assets/plugins/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" />
-	<link href="assets/plugins/bootstrap-datepicker/css/datepicker3.css" rel="stylesheet" />
-    <link href="assets/plugins/gritter/css/jquery.gritter.css" rel="stylesheet" />
+	<!-- <link href="assets/plugins/jquery-jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" /> -->
+	<!-- <link href="assets/plugins/bootstrap-datepicker/css/datepicker.css" rel="stylesheet" />
+	<link href="assets/plugins/bootstrap-datepicker/css/datepicker3.css" rel="stylesheet" /> -->
+    <!-- <link href="assets/plugins/gritter/css/jquery.gritter.css" rel="stylesheet" /> -->
 	<!-- ================== END PAGE LEVEL STYLE ================== -->
 </head>
 <body>
@@ -69,7 +70,7 @@
 						曼秀雷敦<b class="caret m-l-10 f-s-16"></b>
 					</a>
 
-					<ul class="dropdown-menu animated fadeInLeft f-s-16">
+					<ul class="dropdown-menu  fadeInLeft f-s-16">
 						<!-- <li class="arrow"></li> -->
 						<li class="divider"></li>
 						<li><a href="javascript:;">妮维雅</a></li>
@@ -147,40 +148,44 @@
 			<div class="row">
 				<!-- begin col-8 -->
 				<div class="col-md-12">
-					<div class="panel panel-inverse">
+					<div class="panel panel-inverse bgcolor">
 						<div class="panel-heading">
 							<div class="panel-heading-btn">
-								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
-								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
-								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
-								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="download-toggle"><i class="fa fa-download"></i></a>
+                                <ul class="btn-download">
+                                    <li data-click="download-img">保存当前图片</li>
+                                    <li data-click="download-pdf">保存完整PDF</li>
+                                </ul>
+                                
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click=""><i class="fa fa-pencil"></i></a>
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
 							</div>
-							<h4 class="panel-title">SOV分析</h4>
+							<h4 class="panel-title">媒体关注度</h4>
 						</div>
 						<div class="panel-body">
 							<!-- <div class="row"> -->
-								<div id="interactive-chart" class="height-sm col-md-10"></div>
-								<div class="height-sm col-md-2">
-									<ul id="interactive-chart-info" class="interactive-chart-info">
-										<li class="clearfix">
-											<span class="dt">时间范围 </span>
-											<span class="dd">1-3月</span>
-										</li>
-										<li>
-											<span class="dt">地 域</span>
-											<span>江苏-南京</span>
-										</li>
-										<li>
-											<span class="dt">目标人群</span>
-											<span>青少年</span>
-										</li>
-										<li>
-											<span class="dt">频 次</span>
-											<span>8</span>
-										</li>
-									</ul>
-									<div id="interactive-chart-legend" class="interactive-chart-legend"></div>
-								</div>
+                            <div id="media-attention" class="height-sm col-md-10" data-chart></div>
+							<div class="height-sm col-md-2">
+								<ul id="interactive-chart-info" class="interactive-chart-info">
+									<li class="clearfix">
+										<span class="dt">时间范围 </span>
+										<span class="dd">1-3月</span>
+									</li>
+									<li>
+										<span class="dt">地 域</span>
+										<span>江苏-南京</span>
+									</li>
+									<li>
+										<span class="dt">目标人群</span>
+										<span>青少年</span>
+									</li>
+									<li>
+										<span class="dt">频 次</span>
+										<span>8</span>
+									</li>
+								</ul>
+								<div id="interactive-chart-legend" class="interactive-chart-legend"></div>
+							</div>
 							<!-- </div> -->
 						</div>
 					</div>
@@ -189,39 +194,36 @@
 				</div>
 				<div class="row">
 				<!-- begin col-4 -->
-				<div class="col-md-6">
+				<div class="col-md-6 ">
 					
 					
-					<div class="panel panel-inverse">
+					<div class="panel panel-inverse bgcolor">
 						<div class="panel-heading">
 							<div class="panel-heading-btn">
-								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
-								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
-								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click=""><i class="fa fa-download"></i></a>
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click=""><i class="fa fa-pencil"></i></a>
 								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
 							</div>
-							<h4 class="panel-title">媒体曝光量排名</h4>
+							<h4 class="panel-title">市场预览</h4>
 						</div>
 						<div class="panel-body">
-							<div class="row">
-								<div class="col-md-3 height-sm " id="donut-chart-1"></div>
-								<div class="col-md-6 height-sm " id="donut-chart-2"></div>
-								<div class="col-md-3 height-sm " id="donut-chart-3"></div>
+							<!--<div class="row">-->
+                            <div class="height-sm" id="market-preview">
+								
 							</div>
 						</div>
 					</div>
 					
 				</div>
 				<div class="col-md-6">
-					<div class="panel panel-inverse">
+					<div class="panel panel-inverse bgcolor">
 						<div class="panel-heading">
 							<div class="panel-heading-btn">
-								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
-								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-repeat"></i></a>
-								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click=""><i class="fa fa-download"></i></a>
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click=""><i class="fa fa-pencil"></i></a>
 								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
 							</div>
-							<h4 class="panel-title">媒体曝光量排名</h4>
+							<h4 class="panel-title">曝光地域分布</h4>
 						</div>
 						<div class="panel-body">
 							<div id="world-map" class="height-sm col-md-10"></div>
@@ -249,7 +251,7 @@
 		<script src="assets/crossbrowserjs/excanvas.min.js"></script>
 	<![endif]-->
 	<script src="assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-	<script src="assets/plugins/jquery-cookie/jquery.cookie.js"></script>
+	<!-- // <script src="assets/plugins/jquery-cookie/jquery.cookie.js"></script> -->
 	<!-- ================== END BASE JS ================== -->
 	
 	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
@@ -258,18 +260,17 @@
 	<script src="assets/plugins/highcharts/highcharts.src.js"></script>
 	<script src="assets/plugins/highcharts/highcharts-more.js"></script>
 	<script src="assets/plugins/highcharts/modules/solid-gauge.src.js"></script>
-	<!-- // <script src="assets/plugins/sparkline/jquery.sparkline.js"></script> -->
-	<script src="assets/plugins/highMaps/modules/map.js"></script>
-	<!-- // <script src="assets/plugins/highcharts/modules/exporting.js"></script> -->
-	<script src="assets/plugins/highMaps/map-cn-all.js"></script>
+ 	<!-- // <script src="assets/plugins/highMaps/modules/map.js"></script> -->
+	<script src="assets/plugins/highcharts/modules/exporting.js"></script>
+	<!-- // <script src="assets/plugins/highMaps/map-cn-all.js"></script> -->
 	<!-- // <script src="assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script> -->
-	<script src="assets/js/dashboard.js"></script>
-	<script src="assets/js/apps.js"></script>
+	<script src="assets/js/brands.js"></script>
+    <script src="assets/js/apps.js"></script>
 	<!-- ================== END PAGE LEVEL JS ================== -->
 	<script>
 		$(document).ready(function() {
 			App.init();
-			Dashboard.init();
+			Brands.init();
 		});
 	</script>
 </body>

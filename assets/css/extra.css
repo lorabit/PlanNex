@@ -14,7 +14,7 @@ a:hover{
 .nav:first-child > li{
     cursor: pointer;
 }
-.panel .panel-heading ul {
+.panel .panel-heading .btn-download {
     right: 60px;
     top: 55px;
     position: absolute;
@@ -25,13 +25,17 @@ a:hover{
     padding: 10px 0;
     z-index: 100;
 }
-.panel .panel-heading ul li {
+.panel .panel-heading .btn-download li {
     list-style: none;
     line-height: 30px;
     color: white;
     text-align: center;
+    cursor: pointer;
 }
-.hidden{ visibility: hidden;}
+.panel .panel-heading .btn-download li:hover {
+    background-color: #373332;
+}
+.hidden{ display: none;}
 .show{visibility: visible;}
 .tooltip .pointFormat{display: block; float: right;}
 .tooltip .headerFormat{display: block; float: left;}
