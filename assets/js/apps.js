@@ -405,23 +405,31 @@ var handleAfterPageLoadAddClass = function() {
 /* 13. Handle Download section toggle 
 ------------------------------------------------ */
 var handleDownloadToggle = function(){
+    
     $('[data-click=download-toggle]').on("click", function(){
         $(this).parents(".panel-heading-btn").find(".btn-download").toggle();
     });
+
     $('[data-click=download-img]').on("click", function(){
-        var chart = $(this).parents(".panel").find("[data-chart]").highcharts();
-        chart.exportChart({
-            type: 'image/png',
-            filename: 'chart'
+        // 导出png
+        var charts = [];
+        $(this).parents(".panel").find("[data-chart]").each(function(){
+            charts.push($(this).highcharts());
         });
+
+        Highcharts.exportCharts(charts, {type: "image/png"});
         $(this).parents(".panel-heading-btn").find(".btn-download").toggle();
     });
+
     $('[data-click=download-pdf]').on("click", function(){
-        var chart = $(this).parents(".panel").find("[data-chart]").highcharts();
-        chart.exportChart({
-            type: 'application/pdf',
-            filename: 'chart'
+        // 导出pdf
+        var charts = [];
+        $(this).parents(".panel").find("[data-chart]").each(function(){
+            charts.push($(this).highcharts());
         });
+
+        Highcharts.exportCharts(charts, {type: "application/pdf" });
+        
         $(this).parents(".panel-heading-btn").find(".btn-download").toggle();
     });
 };

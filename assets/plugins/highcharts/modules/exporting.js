@@ -21,3 +21,67 @@ c.onclick,h=c.menuItems,g,e,l={stroke:c.symbolStroke,fill:c.symbolFill},q=c.symb
 height:c.height,padding:0});e=d.button(c.text,0,0,i,m,o,n).attr({title:a.options.lang[c._titleKey],"stroke-linecap":"round"});e.menuClassName=b.menuClassName||"highcharts-menu-"+a.btnCount++;c.symbol&&(g=d.symbol(c.symbol,c.symbolX-q/2,c.symbolY-q/2,q,q).attr(p(l,{"stroke-width":c.symbolStrokeWidth||1,zIndex:1})).add(e));e.add().align(p(c,{width:e.width,x:f.pick(c.x,y)}),!0,"spacingBox");y+=(e.width+c.buttonSpacing)*(c.align==="right"?-1:1);a.exportSVGElements.push(e,g)}},destroyExport:function(b){var b=
 b.target,a,d;for(a=0;a<b.exportSVGElements.length;a++)if(d=b.exportSVGElements[a])d.onclick=d.ontouchstart=null,b.exportSVGElements[a]=d.destroy();for(a=0;a<b.exportDivElements.length;a++)d=b.exportDivElements[a],B(d,"mouseleave"),b.exportDivElements[a]=d.onmouseout=d.onmouseover=d.ontouchstart=d.onclick=null,o(d)}});F.menu=function(b,a,d,c){return["M",b,a+2.5,"L",b+d,a+2.5,"M",b,a+c/2+0.5,"L",b+d,a+c/2+0.5,"M",b,a+c-1.5,"L",b+d,a+c-1.5]};A.prototype.callbacks.push(function(b){var a,d=b.options.exporting,
 c=d.buttons;y=0;if(d.enabled!==!1){for(a in c)b.addButton(c[a]);t(b,"destroy",b.destroyExport)}})})(Highcharts);
+
+
+// exporting multiple charts
+/**
+ * Create a global getSVG method that takes an array of charts as an argument
+ */
+Highcharts.getSVG = function(charts) {
+    var svgArr = [],
+        top = 0,
+        width = 0;
+
+    $.each(charts, function(i, chart) {
+        var svg = chart.getSVG();
+        svg = svg.replace('<svg', '<g transform="translate(0,' + top + ')" ');
+        svg = svg.replace('</svg>', '</g>');
+
+        top += chart.chartHeight;
+        width = Math.max(width, chart.chartWidth);
+
+        svgArr.push(svg);
+    });
+
+    return '<svg height="'+ top +'" width="' + width + '" version="1.1" xmlns="http://www.w3.org/2000/svg">' + svgArr.join('') + '</svg>';
+};
+
+/**
+ * Create a global exportCharts method that takes an array of charts as an argument,
+ * and exporting options as the second argument
+ */
+Highcharts.exportCharts = function(charts, options) {
+    var form
+        svg = Highcharts.getSVG(charts);
+
+    // merge the options
+    options = Highcharts.merge(Highcharts.getOptions().exporting, options);
+
+    // create the form
+    form = Highcharts.createElement('form', {
+        method: 'post',
+        action: options.url
+    }, {
+        display: 'none'
+    }, document.body);
+
+    // add the values
+    Highcharts.each(['filename', 'type', 'width', 'svg'], function(name) {
+        Highcharts.createElement('input', {
+            type: 'hidden',
+            name: name,
+            value: {
+                filename: options.filename || 'chart',
+                type: options.type,
+                width: options.width,
+                svg: svg
+            }[name]
+        }, null, form);
+    });
+    //console.log(svg); return;
+    // submit
+    form.submit();
+
+    // clean up
+    form.parentNode.removeChild(form);
+};

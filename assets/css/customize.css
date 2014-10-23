@@ -97,6 +97,23 @@
 	margin-top: 65px;
     padding-left: 20px;
 }
+.media-attention-title{
+	color: #fff;
+	display: inline-block;
+	font-size: 18px;
+	width: 82px;
+	height: 54px;
+	line-height: 54px;
+	background-color: #776b71;
+	border-radius: 27px;
+	text-align: center;
+	/*居中*/
+	position: absolute;
+	left: 50%;
+	margin-left: -41px;
+	top: 50%;
+	margin-top: -27px;
+}
 @media(max-width: 1120px){
 .navbar-center{
 	margin-left: 2%;

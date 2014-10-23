@@ -24,6 +24,7 @@ a:hover{
     border-radius: 3px;
     padding: 10px 0;
     z-index: 100;
+    display: none;
 }
 .panel .panel-heading .btn-download li {
     list-style: none;

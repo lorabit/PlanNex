@@ -767,6 +767,7 @@ var handleDonutChartHigh = function(){
 
     }));
 
+    
 }
 
 var handleSideBarToggle = function(){

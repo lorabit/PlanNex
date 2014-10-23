@@ -105,42 +105,128 @@ var handleMarketPreview = function(){
         xAxis: {
             categories: ['<100', '100-200', '>200']
         },
-        yAxis: {
-            categories: ['GRP', '所有活动', '你的活动']
-        },
-        // labels: {
-        //     items: [{
-        //         html: 'Total fruit consumption',
-        //         style: {
-        //             left: '50px',
-        //             top: '18px',
-        //             color: (Highcharts.theme && Highcharts.theme.textColor) || 'black'
-        //         }
-        //     }]
+        // yAxis: {
+        //     categories: ['GRP', '所有活动', '你的活动']
         // },
+        labels: {
+            items: [{
+                html: 'Total fruit consumption',
+                style: {
+                    left: '50px',
+                    top: '18px',
+                    color: (Highcharts.theme && Highcharts.theme.textColor) || 'black'
+                }
+            }]
+        },
         series: [
-        // {
-        //     type: 'column',
-        //     name: 'Jane',
-        //     data: [3, 2, 1, 3, 4]
-        // }
         {
-            type: 'solidgauge',
-            name: 'pptv',
-            innerRadius: '80%',
-            data: [{
-                name: '所有活动',
-                y: 13,
-                color: Highcharts.getOptions().colors[0] // Jane's color
-            }],
-            center: [40, 80],
-            size: '20%',
-            showInLegend: false,
-            dataLabels: {
-                enabled: false
+            type: 'column',
+            name: 'Jane',
+            data: [3, 2, 1]
+        },{
+            type: 'column',
+            name: 'John',
+            data: [2, 3, 5, 7, 6]
+        }, {
+            type: 'column',
+            name: 'Joe',
+            data: [4, 3, 3, 9, 0]
+        }, {
+            type: 'spline',
+            name: 'Average',
+            data: [3, 2.67, 3, 6.33, 3.33],
+            marker: {
+                lineWidth: 2,
+                lineColor: Highcharts.getOptions().colors[3],
+                fillColor: 'white'
             }
-        }]
+        }
+        // ,{
+        //     type: 'solidgauge',
+        //     name: 'Sohu',
+        //     data: [10],
+        //     innerRadius: '80%',
+        //     dataLabels: {
+        //         y: -30,
+        //         format: '<div style="text-align:center"><span style="font-size:40px;color: #e8ac6c;">{y}</span>' +'<span style="font-size:14px;color:#fff">%</span></div>'
+        //     }
+        // }
+        ]
     });
+};
+
+var handleTargetReceiver = function(){
+    var dataCollection = [[20, '所有活动'], [30, '同行广告主'], [80, '所有活动'], [70, '你的活动'], [15, '同行广告主'], [60, '你的活动']];
+    $("#target-receiver-chart").find("[data-chart]").each(function(){
+        var data = dataCollection.shift();
+        $(this).highcharts({
+            exporting:{enabled: false},
+            title :null,
+            chart: {
+                type: 'column',
+                backgroundColor : 'transparent'
+            },
+            legend:{
+                // align: 'right'
+                enabled: false
+            },
+            xAxis: {
+                tickColor: 'transparent',
+                gridLineColor: 'transparent',
+                lineColor: 'transparent',
+                labels: {
+                    style: {
+                        color: 'transparent'
+                    }
+                }
+            },
+            yAxis: {
+                max: 100,
+                // min: 100,
+                gridLineColor: 'transparent',
+                lineColor: 'transparent',
+                title: null,
+                labels: {
+                    style: {
+                        color: 'transparent'
+                    }
+                }
+            },
+            plotOptions: {
+                column: {
+                    // pointPadding: 0.2,
+                    borderWidth: 0,
+                    borderRadius: 5
+                }
+            },
+            labels: {
+                items :[{
+                    html: data[1],
+                    style :{
+                        left: '150%',
+                        top: '25px',
+                        color: '#8f898d',
+                        'font-size': '14px'
+                    }
+                },
+                {
+                    html: '<span style="font-size: 30px">' + data[0] + '</span>%',
+                    style :{
+                        left: '150%',
+                        top: '65px',
+                        color: '#fff',
+                        'font-size': '14px'
+                    }
+                }]
+            },
+            series: [{
+                color: '#e8ac6c',
+                name: data[1],
+                data: [[{data: 5, color: blue}, {data: 5, color: blue}, {data: 5, color: blue}, {data: 5, color: blue}, {data: 5, color: blue}]]
+            }]
+        })
+    });
+
 };
 
 var handleSideBarToggle = function(){
@@ -156,6 +242,7 @@ var Brands = function () {
         init: function () {
             handleAttentionChart();
             handleMarketPreview();
+            handleTargetReceiver()
             handleSideBarToggle();
         }
     };
