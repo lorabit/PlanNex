@@ -216,18 +216,28 @@
 	text-decoration: none;
 	color: #fff;
 }
+.btn-next{
+	background-color: #fff;
+	color: #303645;
+	display: inline-block;
+	width: 126px;
+	height: 42px;
+	line-height: 42px;
+	border-radius: 21px;
+	text-align: center;
+}
 .cfooter{
 	height: 85px;
 	line-height: 85px;
 	background-color: #2f3644;
 }
-.cfooter>.added{
+.cfooter>.added-label{
 	color: #fff;
 	font-size: 24px;
-	margin-left: 15px;
+	padding-left: 15px;
 
 }
-.cfooter > .added > .label{
+.cfooter > .added-label > .label{
 	background-color: #e4aa6b;
 	display: inline-block;
 	font-weight: normal;
@@ -235,6 +245,13 @@
 	width: 36px;
 	height: 24px;
 	line-height: 24px;
+	margin-left: 7px;
 	border-radius: 12px;
 	text-align: center;
+}
+.cfooter .added-tags{
+	
+}
+.cfooter .added-tags .tag{
+
 }
