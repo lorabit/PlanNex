@@ -163,6 +163,8 @@ var handleTargetReceiver = function(){
             exporting:{enabled: false},
             title :null,
             chart: {
+                alignTicks: false,
+                width: 200,
                 type: 'column',
                 backgroundColor : 'transparent'
             },
@@ -170,15 +172,21 @@ var handleTargetReceiver = function(){
                 // align: 'right'
                 enabled: false
             },
+            tooltip: {
+                enabled: false
+            },
             xAxis: {
-                tickColor: 'transparent',
-                gridLineColor: 'transparent',
-                lineColor: 'transparent',
-                labels: {
-                    style: {
-                        color: 'transparent'
-                    }
-                }
+                // tickColor: 'transparent',
+                // gridLineColor: 'transparent',
+                // lineColor: 'transparent',
+                // labels: {
+                //     style: {
+                //         color: 'transparent'
+                //     }
+                // }
+                min: -1,
+                max: 4,
+                offset: 25
             },
             yAxis: {
                 max: 100,
@@ -190,20 +198,23 @@ var handleTargetReceiver = function(){
                     style: {
                         color: 'transparent'
                     }
-                }
+                },
+                offset: '40'
             },
             plotOptions: {
                 column: {
                     // pointPadding: 0.2,
                     borderWidth: 0,
-                    borderRadius: 5
+                    borderRadius: 5,
+                    pointWidth: 26,
+                    // pointPlacement: 'between'
                 }
             },
             labels: {
                 items :[{
                     html: data[1],
                     style :{
-                        left: '150%',
+                        left: '35%',
                         top: '25px',
                         color: '#8f898d',
                         'font-size': '14px'
@@ -212,7 +223,7 @@ var handleTargetReceiver = function(){
                 {
                     html: '<span style="font-size: 30px">' + data[0] + '</span>%',
                     style :{
-                        left: '150%',
+                        left: '35%',
                         top: '65px',
                         color: '#fff',
                         'font-size': '14px'
@@ -222,7 +233,7 @@ var handleTargetReceiver = function(){
             series: [{
                 color: '#e8ac6c',
                 name: data[1],
-                data: [[{data: 5, color: blue}, {data: 5, color: blue}, {data: 5, color: blue}, {data: 5, color: blue}, {data: 5, color: blue}]]
+                data: [data[0]]
             }]
         })
     });

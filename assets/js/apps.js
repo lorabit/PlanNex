@@ -434,6 +434,18 @@ var handleDownloadToggle = function(){
     });
 };
 
+/* 14. Handle customized checkbox
+------------------------------------------------ */
+var handleCheckbox = function(){
+    $(".checkbox").find("input").on("change", function(){
+        if(this.checked){
+            $(this).parents(".checkbox").addClass("checked");
+        }else{
+            $(this).parents(".checkbox").removeClass("checked");
+        }
+    });
+};
+
 /* Application Controller
 ------------------------------------------------ */
 var App = function () {
@@ -465,6 +477,7 @@ var App = function () {
 
             // customizing
             handleDownloadToggle();
+            handleCheckbox();
 		}
   };
 }();

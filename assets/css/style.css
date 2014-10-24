@@ -12,9 +12,9 @@ h1, h2, h3, h4, h5, h6{
     color: #242a30;
 }
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
-    font-size: 60%;
+    font-size: 65%;
     /*font-weight: 300;*/
-    color: #7c7f83;
+    color: #b2b2b5;
 }
 a {
     transition: color 100ms ease-in-out;
@@ -2439,7 +2439,7 @@ a.text-inverse:focus {
 /*a.text-danger:focus { */
     /*color: #ff7c79 !important; */
 /*}*/
-/*.text-white { color: #fff !important; }*/
+.text-white { color: #fff !important; }
 /*a.text-white:hover,*/
 /*a.text-white:focus { */
     /*color: #f0f3f4 !important; */
@@ -2483,8 +2483,9 @@ a.text-inverse:focus {
 .bg-aqua-lighter { background: #6dc5de !important; }
 
 .bg-purple { background: #727cb6 !important; }
-.bg-purple-darker { background: #5b6392 !important; }
+.bg-purple-darker { background: #45454e !important; }
 .bg-purple-lighter { background: #8e96c5 !important; }
+
 
 .no-bg { background: none !important; }
 
@@ -4935,4 +4936,21 @@ ul.tagit.inverse li.tagit-choice .tagit-close:focus .ui-icon-close:before {
     background: url(assets/plugins/superbox/img/close.gif) no-repeat center center;
     width: 35px;
     height: 35px;
+}
+
+/*justify*/
+.text-justify{
+    text-align: justify;
+    text-justify: distribute-all-lines;
+    text-align-last: justify;
+    -moz-text-align-last: justify;
+    -webkit-text-align-last: justify;
+}
+.text-justify:after{
+    content: ".";
+    display: inline-block;
+    width: 100%;
+    overflow: hidden;
+    height: 0;
+    line-height: 0;
 }

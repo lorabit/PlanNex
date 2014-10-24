@@ -39,7 +39,7 @@ Highcharts.getSVG = function(charts) {
 
         top += chart.chartHeight;
         width = Math.max(width, chart.chartWidth);
-
+        // svgArr.push("<div style='height: 20px; background-color: #ddd;'></div>");
         svgArr.push(svg);
     });
 
