@@ -289,3 +289,24 @@
 .cfooter .slimScrollDiv{
 	background-color: transparent;
 }
+/*brand list*/
+.brand-lists-wrap{
+	margin: 0 35px;
+}
+.brand-lists{
+	list-style: none;
+	padding: 0;
+}
+.brand-lists li h2{
+	font-size: 18px;
+	color: #fff;
+	margin: 0;
+}
+.brand-sub-list{
+	list-style: none;
+	padding: 0;
+}
+.brand-sub-list li{
+	float: left;
+	margin: 20px 20px 0 0;
+}
