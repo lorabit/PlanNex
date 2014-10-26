@@ -1306,10 +1306,15 @@ legend {
 .panel-title a {
     display: block;
 }
+.panel-title span.icon{margin-right:20px;top: 3px;
+position: relative;width:20px;height:20px;background: url(../img/icons/headIcon0.png);display:inline-block;}
 .panel-title > a:hover,
 .panel-title > a:focus {
     text-decoration: none;
 }
+.search-conditions {font-size:12px;margin-left:43px;margin-top:10px;}
+.search-conditions label{color:#FFF;}
+.search-conditions span{color:#FFF;margin-left:13px;margin-right:28px;}
 
 
 /* 3.14 Component - Button */
@@ -1693,6 +1698,9 @@ legend {
 .panel-body {
     padding: 15px;
 }
+.withSubTitle .panel-body{
+    height:298px;
+}
 .panel-body.no-border {
     border: none !important;
 }
@@ -1794,7 +1802,11 @@ legend {
     bottom: 0;
 }
 
-
+/* 3.16.1 Component - Panel - Panel Swich */
+.sTab{width:calc(100% - 40px);float:left;height:100%;}
+.tabSwich {float:left;width:10px;margin-left:10px;height:100%;padding-top:50px;}
+.tabSwich a{margin-top:10px;width:100%;height:10px;background: #66656d;border-radius: 10px;display: inline-block;;}
+.tabSwich a.active{background: #FFF;}
 /* 3.17 Component - Panel - Panel loading */
 
 .panel.panel-loading .panel-body {

@@ -282,7 +282,7 @@ var handleDonutChartHigh = function(){
         },
 
         pane: {
-            size: '80%',
+            size: '100%',
             // 计算： startAngle: (0.5 - data) * 360 * 0.5
             //        endAngle: startAngle + 360
             startAngle: (0.5 - 0.1) * 360 * 0.5,
@@ -413,6 +413,7 @@ var Dashboard = function () {
             handleDonutChartHigh();
             // handleVectorMap();
             mapShowProv();
+            mediaAttentionInit();
             //handleVectorMapHigh();
             // handleDashboardDatepicker();
             handleSideBarToggle();
