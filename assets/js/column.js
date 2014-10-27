@@ -1,18 +1,14 @@
 $(function(){
-    initColumnChart();
+    longColumnDemo('#exposureChart');
+    longColumnDemo('#activeChart');
+    oneColumnDemo('#oneColumnChart1');
+    oneColumnDemo('#oneColumnChart2');
+    fourColumnDemo('#fourColumnChart1');
+    fourColumnDemo('#fourColumnChart2');
 });
 
-function initColumnChart(container) {
-    $(container).highcharts({
-        chart: {
-            type: 'column',
-            backgroundColor:'#645c63'
-        },
-        title: {
-            text: 'Monthly Average Rainfall'
-        },
-        xAxis: {
-            categories: [
+function longColumnDemo(container){
+    axis = [
                 'Jan',
                 'Feb',
                 'Mar',
@@ -25,30 +21,77 @@ function initColumnChart(container) {
                 'Oct',
                 'Nov',
                 'Dec'
-            ],
+            ];
+    data = [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4];
+    initColumnChart(container,axis,data);
+}
+
+function oneColumnDemo(container){
+    axis = [
+                'Q1',
+            ];
+    data = [49.9];
+    initColumnChart(container,axis,data);
+}
+
+function fourColumnDemo(container){
+        axis = [
+                'Q1',
+                'Q2',
+                'Q3',
+                'Q4',
+            ];
+    data = [49.9, 71.5, 106.4, 129.2,];
+    initColumnChart(container,axis,data);
+}
+
+function initColumnChart(container,axis,data) {
+    $(container).highcharts({
+        exporting: { enabled: false },
+        chart: {
+            type: 'column',
+            backgroundColor:'transparent',
+            plotBackgroundColor:'rgba(255,255,255,0.2)'
+        },
+        title: {
+            text: null
+        },
+        legend:{
+            itemStyle:{
+                color:'#FFF',
+                fontSize:'18px',
+                fontWeight:'normal',
+            },
+            symbolWidth:0,
+        },
+        xAxis: {
+            categories: axis,
             labels:{
-                 y:-290,
+                 y:-315,
                 style:{color:'#d7d7d9'},
             },
             tickWidth:0,
             gridLineWidth:1,
             gridLineColor:'#4f464d',
-            lineWidth:0
+            lineWidth:0,
         },
         yAxis: {
             min: 0,
             title: {
-                text: 'Rainfall (mm)'
+                text: null
             },
             gridLineWidth:0,
+            offset:25,
+            tickWidth:1,
+            lineWidth:1,
+            tickPosition:'inside',
+            tickColor:'rgba(255,255,255,0.2)',
+            labels:{
+                style:{color:'#FFF'}
+            }
         },
         tooltip: {
-            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
-            footerFormat: '</table>',
-            shared: true,
-            useHTML: true
+           enabled:false
         },
         plotOptions: {
             column: {
@@ -60,14 +103,15 @@ function initColumnChart(container) {
                 groupPadding:0,
                 dataLabels:{
                     color:'#d7d7d9',
-                    enabled:true
+                    enabled:true,
+                    hover:function(){alert(1);}
                 }
             }
         },
         series: [{
-            name: 'Tokyo',
+            name: '曝光量',
             color:'#e8ac6c',
-            data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+            data: data
 
         }]
     });
