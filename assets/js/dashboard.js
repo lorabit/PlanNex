@@ -289,12 +289,36 @@ var handleDonutChartHigh = function(){
             endAngle:  (0.5 - 0.1) * 360 * 0.5 + 360 ,
 
         },
+        plotOptions:{
+            pie:{
+
+                borderColor:'transparent',
+                states:{
+                    hover:{
+                        enabled:true,
+                        borderColor:'transparent',
+                        size:100,
+                        innerRadius:93,
+                    },
+                }
+            }
+        },
 
         series: [{
-            name: 'pptv',
-            data: [10],
-            innerRadius: '80%',
+            data: [
+                {
+                    y:10,
+                    color:'#e9ac6d',
+
+                },
+                {
+                    y:90,
+                    color:'rgba(255,255,255,0.2)'
+                    
+                }],
+            //innerRadius: '80%',
             dataLabels: {
+                enabled:false,
                 y: -30,
                 format: '<div style="text-align:center"><span style="font-size:40px;color: #e8ac6c;">{y}</span>' +'<span style="font-size:14px;color:#fff">%</span></div>'
             }

@@ -405,12 +405,12 @@ var handleAfterPageLoadAddClass = function() {
 /* 13. Handle Download section toggle 
 ------------------------------------------------ */
 var handleDownloadToggle = function(){
-    
     $('[data-click=download-toggle]').on("click", function(){
         $(this).parents(".panel-heading-btn").find(".btn-download").toggle();
     });
 
     $('[data-click=download-img]').on("click", function(){
+        console.log('png');
         // 导出png
         var charts = [];
         $(this).parents(".panel").find("[data-chart]").each(function(){
