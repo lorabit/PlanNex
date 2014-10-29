@@ -202,6 +202,7 @@ var handleInteractiveChartHigh = function(){
 };
 
 var handleDonutChartHigh = function(){
+    return;
     var gaugeOptions = {
 
             exporting: { enabled: false },
@@ -266,65 +267,6 @@ var handleDonutChartHigh = function(){
         }
     };
 
-    
-    // The pptv gauge
-    $('#donut-chart-1').highcharts(Highcharts.merge(gaugeOptions, {
-        exporting: { enabled: false },
-        yAxis: {
-            title: {
-                text: 'pptv',
-                offset: 10,
-                y: 65,
-                style: {
-                    color:"#fff"
-                }
-            }
-        },
-
-        pane: {
-            size: '100%',
-            // 计算： startAngle: (0.5 - data) * 360 * 0.5
-            //        endAngle: startAngle + 360
-            startAngle: (0.5 - 0.1) * 360 * 0.5,
-            endAngle:  (0.5 - 0.1) * 360 * 0.5 + 360 ,
-
-        },
-        plotOptions:{
-            pie:{
-
-                borderColor:'transparent',
-                states:{
-                    hover:{
-                        enabled:true,
-                        borderColor:'transparent',
-                        size:100,
-                        innerRadius:93,
-                    },
-                }
-            }
-        },
-
-        series: [{
-            data: [
-                {
-                    y:10,
-                    color:'#e9ac6d',
-
-                },
-                {
-                    y:90,
-                    color:'rgba(255,255,255,0.2)'
-                    
-                }],
-            //innerRadius: '80%',
-            dataLabels: {
-                enabled:false,
-                y: -30,
-                format: '<div style="text-align:center"><span style="font-size:40px;color: #e8ac6c;">{y}</span>' +'<span style="font-size:14px;color:#fff">%</span></div>'
-            }
-        }]
-
-    }));
 
     // The Youku gauge
     $('#donut-chart-2').highcharts(Highcharts.merge(gaugeOptions, {
