@@ -1,0 +1,51 @@
+.gender-man{
+	width:29px;
+	height:75px;
+	background: url(../img/icons/forms-icons/gender-man-background.png);
+	position: relative;;
+	float:left;
+}
+.gender-man .share{
+	position: absolute;
+	width:100%;
+	background: url(../img/icons/forms-icons/gender-man-share.png);
+	bottom:0px;
+	background-position-y: 100%;
+}
+
+.gender-man .share.active{
+	background: url(../img/icons/forms-icons/gender-man-highlight.png);
+	background-position-y: 100%;
+}
+
+.gender-woman{
+	margin-left:14px;
+	width:35px;
+	height:75px;
+	background: url(../img/icons/forms-icons/gender-woman-background.png);
+	position: relative;;
+	float:left;
+}
+.gender-woman .share{
+	position: absolute;
+	width:100%;
+	background: url(../img/icons/forms-icons/gender-woman-share.png);
+	bottom:0px;
+	background-position-y: 100%;
+}
+
+.gender-woman .share.active{
+	background: url(../img/icons/forms-icons/gender-woman-highlight.png);
+	background-position-y: 100%;
+}
+
+#gender-percentage{
+	font-size: 60px;
+	color:#e8ac6c;
+	line-height: 60px;
+}
+
+#gender-info{
+	color:#ffffff;
+	font-size:14px;
+}
