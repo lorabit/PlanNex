@@ -76,9 +76,9 @@ function makeKineticDonut(container,data,params){
 	nameFontSize = params.nameFontSize || 16;
 	percentageFontSize = params.percentageFontSize || 40;
 	// nameTextOffsetX = params.nameTextOffsetX || 5;
-	// nameTextOffsetY = params.nameTextOffsetY || 13;
+	 nameTextOffsetY = params.nameTextOffsetY || 0;
 	// percentageTextOffsetX = params.percentageTextOffsetX || 5;
-	// percentageTextOffsetY = params.percentageTextOffsetY || 0;
+	 percentageTextOffsetY = params.percentageTextOffsetY || 0;
 	// symbolTextOffsetX = params.symbolTextOffsetX || 35;
 	// symbolTextOffsetY = params.symbolTextOffsetY || 22;
 
@@ -92,7 +92,7 @@ function makeKineticDonut(container,data,params){
 
 	var nameText = new Kinetic.Text({
       x: width/2 - innerRadius,
-      y: height/2 + percentageFontSize/2,
+      y: height/2 + percentageFontSize/2+nameTextOffsetY,
       text: data[0].name,
       fontSize:  nameFontSize,
       fill: '#FFF',
@@ -104,7 +104,7 @@ function makeKineticDonut(container,data,params){
 
     var percentageText = new Kinetic.Text({
       x: width/2 - innerRadius,
-      y: height/2 - innerRadius/2,
+      y: height/2 - innerRadius/2+percentageTextOffsetY,
       text: data[0].value,
       fontSize:  percentageFontSize,
       fill: '#e8ac6c',
@@ -116,7 +116,7 @@ function makeKineticDonut(container,data,params){
 
     var symbolText = new Kinetic.Text({
       x: width/2 - innerRadius/2 + percentageFontSize+nameFontSize/2+5,
-      y: height/2 - innerRadius/2 + percentageFontSize/2 + 5,
+      y: height/2 - innerRadius/2 + percentageFontSize/2 + 5+percentageTextOffsetY,
       text: '%',
       fontSize:  nameFontSize-4,
       fill: '#FFF',

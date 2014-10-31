@@ -25,6 +25,7 @@
     <link href="assets/css/map.css" rel="stylesheet" />
     <link href="assets/css/media-attention.css" rel="stylesheet" />
     <link href="assets/css/target-people.css" rel="stylesheet" />
+    <link href="assets/css/media-share.css" rel="stylesheet" />
 	<!-- ================== END CUSOMIZE CSS STYLE ================== -->
 	<!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
 	<!-- <link href="assets/plugins/jquery-jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" /> -->
@@ -453,12 +454,11 @@
                                 <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click=""><i class="fa fa-pencil"></i></a>
                                 <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click=""><i class="fa fa-times"></i></a>
 							</div>
-							<h4 class="panel-title"><span class="icon"></span>自有数据概览</h4>
+							<h4 class="panel-title"><span class="icon"></span>媒体份额</h4>
 							<div class="search-conditions"><label>时间范围</label><span>1-3月</span><label>地域</label><span>江苏－南京</span></div>
 						</div>
 						<div class="panel-body">
-							<div id="fourColumnChart1" class="col-md-6"></div>
-							<div id="fourColumnChart2" class="col-md-6"></div>
+							<div id="media-share" class="col-md-12"></div>
 						</div>
 					</div>
 				</div>
@@ -505,6 +505,7 @@
     <script src="assets/js/apps.js"></script>
     <script src="assets/js/kinetic-v5.1.0.min.js"></script>
     <script src="assets/js/donut.js"></script>
+    <script src="assets/js/media-share.js"></script>
 	<!-- ================== END PAGE LEVEL JS ================== -->
 	<script>
 		$(document).ready(function() {
@@ -514,5 +515,9 @@
 	</script>
 	<style type="text/css">
 	</style>
+	<div id="media-share-tooltip" style="display:none;">
+		<div id="media-share-percentage">2.4</div>
+		<div id="media-share-name">Youku</div>
+	</div>
 </body>
 </html
