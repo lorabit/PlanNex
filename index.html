@@ -26,6 +26,7 @@
     <link href="assets/css/media-attention.css" rel="stylesheet" />
     <link href="assets/css/target-people.css" rel="stylesheet" />
     <link href="assets/css/media-share.css" rel="stylesheet" />
+    <link href="assets/css/performance-chart.css" rel="stylesheet" />
 	<!-- ================== END CUSOMIZE CSS STYLE ================== -->
 	<!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
 	<!-- <link href="assets/plugins/jquery-jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" /> -->
@@ -197,7 +198,7 @@
 				</div>
 				<div class="row">
 				<!-- begin col-4 -->
-				<div class="col-md-6 ">
+				<div class="col-md-6 withSubTitle2">
 					
 					
 					<div class="panel panel-inverse bgcolor">
@@ -212,13 +213,24 @@
 								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
 							</div>
 							<h4 class="panel-title">媒体曝光量排名</h4>
+							<div class="search-conditions"><label>时间范围</label><span>1-3月</span><label>地域</label><span>江苏－南京</span></div>
+							<div class="hLegend">
+									<div class="item"><span style="background:#FFF;"></span>TOP1</div>
+									<div class="item"><span style="background:#e5c9ac;"></span>TOP2</div>
+									<div class="item"><span style="background:#f1ae67;"></span>TOP3</div>
+									<div class="item"><span style="background:#6f5f5c;"></span>客户</div>
+									<div class="item"><span style="background:#887369;"></span>其他品牌</div>
+								</div>
 						</div>
 						<div class="panel-body">
 							<!--<div class="row">-->
+							
                             <div>
+                            	<div class="col-md-1 height-sm" style="padding-top: 42px;font-size: 50px;">&#60</div>
 								<div class="col-md-3 height-sm " id="donut-chart-1" data-chart></div>
-								<div class="col-md-6 height-sm text-center" id="donut-chart-2" data-chart></div>
+								<div class="col-md-4 height-sm text-center" id="donut-chart-2" data-chart></div>
 								<div class="col-md-3 height-sm " id="donut-chart-3" data-chart></div>
+								<div class="col-md-1 height-sm" style="padding-top: 42px;font-size: 50px;">&#62</div>
 							</div>
 						</div>
 					</div>
@@ -306,6 +318,11 @@
 							<div class="search-conditions"><label>时间范围</label><span>1-3月</span><label>地域</label><span>江苏－南京</span></div>
 						</div>
 						<div class="panel-body">
+							<div class="cPagination">
+								<div class="lastPage">&lt;</div>
+								<div class="title">北京</div>
+								<div class="nextPage">&gt;</div>
+							</div>
 							<div class="col-md-12" style="padding:0px;" data-chart>
 								<div id="market-share-table"></div>
 							</div>
@@ -317,7 +334,7 @@
 				<!-- begin row -->
 			<div class="row">
 				<!-- begin col-8 -->
-				<div class="col-md-12">
+				<div class="col-md-12 withSubTitle">
 					<div class="panel panel-inverse bgcolor">
 						<div class="panel-heading">
 							<div class="panel-heading-btn">
@@ -333,8 +350,8 @@
 							<div class="search-conditions"><label>时间范围</label><span>1-3月</span><label>地域</label><span>江苏－南京</span></div>
 						</div>
 						<div class="panel-body">
-							<div id="exposureChart" class="col-md-6"></div>
-							<div id="activeChart" class="col-md-6"></div>
+							<div id="exposureChart" class="col-md-6 fullHeight"></div>
+							<div id="activeChart" class="col-md-6 fullHeight"></div>
 						</div>
 					</div>
 				</div>
@@ -342,7 +359,7 @@
 				</div>
 			<div class="row">
 				<!-- begin col-8 -->
-				<div class="col-md-6">
+				<div class="col-md-6 withSubTitle">
 					<div class="panel panel-inverse bgcolor">
 						<div class="panel-heading">
 							<div class="panel-heading-btn">
@@ -358,12 +375,12 @@
 							<div class="search-conditions"><label>时间范围</label><span>1-3月</span><label>地域</label><span>江苏－南京</span></div>
 						</div>
 						<div class="panel-body">
-							<div id="oneColumnChart1" class="col-md-6"></div>
-							<div id="oneColumnChart2" class="col-md-6"></div>
+							<div id="oneColumnChart1" class="col-md-6 fullHeight"></div>
+							<div id="oneColumnChart2" class="col-md-6 fullHeight"></div>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-6">
+				<div class="col-md-6 withSubTitle">
 					<div class="panel panel-inverse bgcolor">
 						<div class="panel-heading">
 							<div class="panel-heading-btn">
@@ -379,8 +396,8 @@
 							<div class="search-conditions"><label>时间范围</label><span>1-3月</span><label>地域</label><span>江苏－南京</span></div>
 						</div>
 						<div class="panel-body">
-							<div id="fourColumnChart1" class="col-md-6"></div>
-							<div id="fourColumnChart2" class="col-md-6"></div>
+							<div id="fourColumnChart1" class="col-md-6 fullHeight"></div>
+							<div id="fourColumnChart2" class="col-md-6 fullHeight"></div>
 						</div>
 					</div>
 				</div>
@@ -388,7 +405,7 @@
 				</div>
 				<div class="row">
 				<!-- begin col-8 -->
-				<div class="col-md-12">
+				<div class="col-md-12 withSubTitle">
 					<div class="panel panel-inverse bgcolor">
 						<div class="panel-heading">
 							<div class="panel-heading-btn">
@@ -404,7 +421,79 @@
 							<div class="search-conditions"><label>时间范围</label><span>1-3月</span><label>地域</label><span>江苏－南京</span></div>
 						</div>
 						<div class="panel-body">
-							<div id="performaceChartLong" class="col-md-12"></div>
+							<div id="performanceChartLong" class="col-md-12 performance-chart">
+								<div class="chart"></div>
+								<div class="detailTable"></div>
+								<div class="legend">
+									<div class="item"><span style="background:#FFF;"></span>TOP1</div>
+									<div class="item"><span style="background:#e5c9ac;"></span>TOP2</div>
+									<div class="item"><span style="background:#f1ae67;"></span>TOP3</div>
+									<div class="item"><span style="background:#6f5f5c;"></span>客户</div>
+									<div class="item"><span style="background:#887369;"></span>其他品牌</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- end col-8 -->
+				</div><div class="row">
+				<!-- begin col-8 -->
+				<div class="col-md-6 withSubTitle">
+					<div class="panel panel-inverse bgcolor">
+						<div class="panel-heading">
+							<div class="panel-heading-btn">
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="download-toggle"><i class="fa fa-download"></i></a>
+                                <ul class="btn-download hidden">
+                                    <li data-click="download-img">保存当前图片</li>
+                                    <li data-click="download-pdf">保存完整PDF</li>
+                                </ul>
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click=""><i class="fa fa-pencil"></i></a>
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click=""><i class="fa fa-times"></i></a>
+							</div>
+							<h4 class="panel-title"><span class="icon"></span>客户所在行业表现</h4>
+							<div class="search-conditions"><label>时间范围</label><span>1-3月</span><label>地域</label><span>江苏－南京</span></div>
+						</div>
+						<div class="panel-body">
+							<div id="performanceChartLong1" class="col-md-12 performance-chart">
+								<div class="chart"></div>
+								<div class="detailTable"></div>
+								<div class="legend">
+									<div class="item"><span style="background:#FFF;"></span>TOP1</div>
+									<div class="item"><span style="background:#e5c9ac;"></span>TOP2</div>
+									<div class="item"><span style="background:#f1ae67;"></span>TOP3</div>
+									<div class="item"><span style="background:#6f5f5c;"></span>客户</div>
+									<div class="item"><span style="background:#887369;"></span>其他品牌</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div><div class="col-md-6 withSubTitle">
+					<div class="panel panel-inverse bgcolor">
+						<div class="panel-heading">
+							<div class="panel-heading-btn">
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="download-toggle"><i class="fa fa-download"></i></a>
+                                <ul class="btn-download hidden">
+                                    <li data-click="download-img">保存当前图片</li>
+                                    <li data-click="download-pdf">保存完整PDF</li>
+                                </ul>
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click=""><i class="fa fa-pencil"></i></a>
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click=""><i class="fa fa-times"></i></a>
+							</div>
+							<h4 class="panel-title"><span class="icon"></span>客户所在行业表现</h4>
+							<div class="search-conditions"><label>时间范围</label><span>1-3月</span><label>地域</label><span>江苏－南京</span></div>
+						</div>
+						<div class="panel-body">
+							<div id="performanceChartLong4" class="col-md-12 performance-chart">
+								<div class="chart"></div>
+								<div class="detailTable"></div>
+								<div class="legend">
+									<div class="item"><span style="background:#FFF;"></span>TOP1</div>
+									<div class="item"><span style="background:#e5c9ac;"></span>TOP2</div>
+									<div class="item"><span style="background:#f1ae67;"></span>TOP3</div>
+									<div class="item"><span style="background:#6f5f5c;"></span>客户</div>
+									<div class="item"><span style="background:#887369;"></span>其他品牌</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -412,7 +501,7 @@
 				</div>
 				<div class="row">
 				<!-- begin col-8 -->
-				<div class="col-md-6">
+				<div class="col-md-6 withSubTitle">
 					<div class="panel panel-inverse bgcolor">
 						<div class="panel-heading">
 							<div class="panel-heading-btn">
@@ -442,7 +531,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-6">
+				<div class="col-md-6 withSubTitle">
 					<div class="panel panel-inverse bgcolor">
 						<div class="panel-heading">
 							<div class="panel-heading-btn">
@@ -459,6 +548,30 @@
 						</div>
 						<div class="panel-body">
 							<div id="media-share" class="col-md-12"></div>
+						</div>
+					</div>
+				</div>
+				<!-- end col-8 -->
+				</div>
+				<div class="row">
+				<!-- begin col-8 -->
+				<div class="col-md-6 withSubTitle">
+					<div class="panel panel-inverse bgcolor">
+						<div class="panel-heading">
+							<div class="panel-heading-btn">
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="download-toggle"><i class="fa fa-download"></i></a>
+                                <ul class="btn-download hidden">
+                                    <li data-click="download-img">保存当前图片</li>
+                                    <li data-click="download-pdf">保存完整PDF</li>
+                                </ul>
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click=""><i class="fa fa-pencil"></i></a>
+                                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click=""><i class="fa fa-times"></i></a>
+							</div>
+							<h4 class="panel-title"><span class="icon"></span>市场概览</h4>
+							<div class="search-conditions"><label>时间范围</label><span>1-3月</span><label>地域</label><span>江苏－南京</span></div>
+						</div>
+						<div class="panel-body">
+							<div id="marketSummary" class="fullHeight"></div>
 						</div>
 					</div>
 				</div>
@@ -506,6 +619,8 @@
     <script src="assets/js/kinetic-v5.1.0.min.js"></script>
     <script src="assets/js/donut.js"></script>
     <script src="assets/js/media-share.js"></script>
+    <script src="assets/js/performance-chart.js"></script>
+    <script src="assets/js/market-summary.js"></script>
 	<!-- ================== END PAGE LEVEL JS ================== -->
 	<script>
 		$(document).ready(function() {

@@ -5,6 +5,7 @@
 .media-attention-row .volume{margin-right:10px;width:25px;height:100%;float:left;}
 .media-attention-row .volume div{height:6px;background:rgba(255,255,255,0.2);margin-top:4px;margin-bottom:4px;width:100%;border-radius:8px;}
 .media-attention-row .volume div.active{background:#e8ac6c;}
+.media-attention-row .volume div.active.hover{background:#f9c68b;}
 .media-attention-row .name{font-size:14px;margin-bottom:5px;}
 .media-attention-row .percentage{color:#FFF;font-size:30px;height:30px;line-height:30px;}
 .media-attention-row .percentage span{font-size:14px;}

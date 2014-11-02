@@ -1,13 +1,13 @@
 $(function(){
-    longColumnDemo('#exposureChart');
-    longColumnDemo('#activeChart');
-    oneColumnDemo('#oneColumnChart1');
-    oneColumnDemo('#oneColumnChart2');
-    fourColumnDemo('#fourColumnChart1');
-    fourColumnDemo('#fourColumnChart2');
+    longColumnDemo('#exposureChart','曝光量');
+    longColumnDemo('#activeChart','活动数');
+    oneColumnDemo('#oneColumnChart1','曝光量');
+    oneColumnDemo('#oneColumnChart2','活动数');
+    fourColumnDemo('#fourColumnChart1','曝光量');
+    fourColumnDemo('#fourColumnChart2','活动数');
 });
 
-function longColumnDemo(container){
+function longColumnDemo(container,title){
     axis = [
                 'Jan',
                 'Feb',
@@ -23,18 +23,18 @@ function longColumnDemo(container){
                 'Dec'
             ];
     data = [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4];
-    initColumnChart(container,axis,data);
+    initColumnChart(container,axis,data,title);
 }
 
-function oneColumnDemo(container){
+function oneColumnDemo(container,title){
     axis = [
                 'Q1',
             ];
     data = [49.9];
-    initColumnChart(container,axis,data);
+    initColumnChart(container,axis,data,title);
 }
 
-function fourColumnDemo(container){
+function fourColumnDemo(container,title){
         axis = [
                 'Q1',
                 'Q2',
@@ -42,16 +42,17 @@ function fourColumnDemo(container){
                 'Q4',
             ];
     data = [49.9, 71.5, 106.4, 129.2,];
-    initColumnChart(container,axis,data);
+    initColumnChart(container,axis,data,title);
 }
 
-function initColumnChart(container,axis,data) {
+function initColumnChart(container,axis,data,title) {
     $(container).highcharts({
         exporting: { enabled: false },
         chart: {
+            height:$(container).height(),
             type: 'column',
             backgroundColor:'transparent',
-            plotBackgroundColor:'rgba(255,255,255,0.2)'
+            plotBackgroundColor:'rgba(255,255,255,0.2)',
         },
         title: {
             text: null
@@ -71,9 +72,10 @@ function initColumnChart(container,axis,data) {
                 style:{color:'#d7d7d9'},
             },
             tickWidth:0,
-            gridLineWidth:1,
+            gridLineWidth:10,//修改间距参数，共两个，默认值1
             gridLineColor:'#4f464d',
             lineWidth:0,
+            // tickInterval:0.01,
         },
         yAxis: {
             min: 0,
@@ -100,16 +102,15 @@ function initColumnChart(container,axis,data) {
                 borderColor:'',
                 borderWidth: 1,
                 edgeWidth:0,
-                groupPadding:0,
+                groupPadding:0.1, //修改间距参数，共两个，默认值0
                 dataLabels:{
                     color:'#d7d7d9',
                     enabled:true,
-                    hover:function(){alert(1);}
                 }
             }
         },
         series: [{
-            name: '曝光量',
+            name: title,
             color:'#e8ac6c',
             data: data
 

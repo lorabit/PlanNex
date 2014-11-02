@@ -229,10 +229,12 @@ var handleDraggablePanel = function() {
   var target = '[class*=col]';
   var targetHandle = '.panel-heading';
   var connectedTarget = '.row > [class*=col]';
-  
   $(target).sortable({
     handle: targetHandle,
-    connectWith: connectedTarget
+    connectWith: connectedTarget,
+    stop:function(){
+        $(window).trigger('resize');
+    }
   });
 };
 

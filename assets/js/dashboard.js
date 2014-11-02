@@ -47,16 +47,18 @@ var fakeData = function(a, b, c, type){
     var data = [];
     if(type == "regression"){
         for(var i = 0; i < 350; i++){
-            data[i] = [i, a * i * i + b * i + c];
+            data[i] = [i, parseInt(a * i * i + b * i + c)];
         }
         return data;
     }else{
         for(var i = 0; i < 350; i++){
-            data[i] = [i, a * i * i + b * i + c + 15 * (0.5 - Math.random())];
+            data[i] = [i, parseInt(a * i * i + b * i + c + 15 * (0.5 - Math.random()))];
         }
         return data;
     }
 };
+
+
 var handleInteractiveChartHigh = function(){
     "use strict";
     $('#interactive-chart').highcharts({
@@ -145,12 +147,35 @@ var handleInteractiveChartHigh = function(){
             // useHTML: true,
             align: 'right'
         },
+        tooltip:{
+            useHTML: true,
+            backgroundColor: '#221d1c',
+            borderWidth: 0,
+            borderRadius:10,
+            headerFormat:'',
+            pointFormat:'<div style="width:180px;"><div class="col-md-6 text-center" style="color:#FFF;font-size:30px;">{point.y}</div><div class="col-md-6 text-center" style="color:#FFF;font-size:30px;">{point.x}</div><div class="col-md-6 text-center" style="font-size:14px;color:#FFF;">REACH</div><div class="col-md-6 text-center" style="font-size:14px;color:#FFF;">GRP</div></div>',
+        },
         series: [{
             color: orange,
             lineWidth: 5,
             name: '品牌A',
             // data: [[0, 12], [25, 12], [50, 25], [75, 30], [100, 35], [125, 42], [150, 55], [175, 67], [200, 72], [225, 82], [250, 80], [275, 95], [300, 85]],
             data: fakeData(-0.001, 0.6, 1, "regression"),
+            regression: true,
+            marker: {
+                enabled: false
+            },
+            // states: {
+            //     hover: {
+            //         lineWidth: 0
+            //     }
+            // },
+        },{
+            color: blue,
+            lineWidth: 5,
+            name: '品牌C',
+            // data: [[0, 12], [25, 12], [50, 25], [75, 30], [100, 35], [125, 42], [150, 55], [175, 67], [200, 72], [225, 82], [250, 80], [275, 95], [300, 85]],
+            data: fakeData(-0.001, 0.4, 1, "regression"),
             regression: true,
             marker: {
                 enabled: false
@@ -171,12 +196,17 @@ var handleInteractiveChartHigh = function(){
                 radius: 2,
                 symbol: 'circle'
             },
-            tooltip: {
-                headerFormat: '',
-                pointFormat: '{point.y}% REACH, <p>{point.x}</p> GRP',
-                backgroundColor: "#000",
-                shadow: true
-            }
+        }, {
+            color: blue,
+            // type: 'scatter',
+            // lineWidth: 5,
+            name: '品牌B',
+            // data: [[0, 15], [25, 22], [50, 15], [75, 20], [100, 31], [125, 40], [150, 45], [175, 57], [200, 68], [225, 79], [250, 90], [275, 90], [300, 89]],
+            data: fakeData(-0.001, 0.4, 1, "dots"),
+            marker: {
+                radius: 2,
+                symbol: 'circle'
+            },
         }],
          plotOptions: {
             scatter: {

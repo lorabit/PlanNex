@@ -1,3 +1,24 @@
+.cPagination{
+    width:100%;
+    float:left;
+    padding-left:240px;
+    margin-bottom:20px;
+    padding-bottom:10px;
+    border-bottom:1px solid rgba(255,255,255,0.2);
+}
+.cPagination .lastPage, .cPagination .nextPage{
+    float:left;
+    width:25px;
+    height:25px;
+    border-radius: 20px;
+    background: #817a7e;
+    color:#FFF;
+    text-align: center;
+    line-height:25px;
+}
+.cPagination .title{float:left;width:180px;font-size:20px;color:#eeaf6f;text-align: center;}
+
+
 body {
     background: url(../img/icons/index-bg.png) repeat-x;
     background-size: 1px 100%;
@@ -29,6 +50,17 @@ a:focus {
 label {
     color: #242a30;
 }
+.fullHeight{height:100%;}
+.hLegend>div{
+    background: none !important;
+}
+.hLegend{margin-left:35px;margin-top:10px;position:relative;}
+.hLegend div{
+    display:inline-block;
+    margin-left:10px;
+    color:#FFF;
+}
+.hLegend div span{display:inline-block;width:14px;height:14px;margin-right:5px;border-radius:3px;top:1px;position:relative;}
 
 /* -------------------------------
    2.0 Page Structure Settings
@@ -1699,6 +1731,9 @@ position: relative;width:20px;height:20px;background: url(../img/icons/headIcon0
 }
 .withSubTitle .panel-body{
     height:298px;
+}
+.withSubTitle2 .panel-body{
+    height:268px;
 }
 .panel-body.no-border {
     border: none !important;

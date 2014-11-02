@@ -18,13 +18,13 @@ function marketShareDemo(container){
     makes = [];
     for(name in data.series){
         row = $('<div>');
-        $('<div>').addClass('name col-md-2').text(name).css({'line-height':'80px','text-align':'center'}).appendTo(row);
+        $('<div>').addClass('name col-md-2').text(name).css({'line-height':'60px','text-align':'center'}).appendTo(row);
         d = data.series[name];
         for(i in d){
             percentage = d[i];
             id++;
             makes.push({id:id,percentage:percentage});
-            $('<div>').addClass('col-md-2').css({'height':80,'padding':0}).attr('id',idPrefix+id).appendTo(row);
+            $('<div>').addClass('col-md-2').css({'height':60,'padding':0}).attr('id',idPrefix+id).appendTo(row);
         }
         row.appendTo(c);
     }
@@ -34,7 +34,22 @@ function marketShareDemo(container){
     }
     row.appendTo(c)
     for(i in makes){
-        makeDonut('#'+idPrefix+makes[i].id,makes[i].percentage);
+        makeKineticDonut(idPrefix+makes[i].id,[{value:makes[i].percentage,name:null,color:'#e6aa6d'},{value:100-makes[i].percentage,name:null,color:'#756c71',enableHover:false}],{
+            width:110,
+            height:60,
+            innerRadius:20,
+            outerRadius:25,
+            hoverInnerRadius:18,
+            hoverOuterRadius:27,
+            percentageFontSize:15,
+            nameFontSize:13,
+            percentageTextOffsetY:3,
+            symbolTextOffsetX:-8,
+            symbolTextOffsetY:-15,
+            startDeg:270,
+            percentageColor:'#FFF'
+        });
+        //makeDonut('#'+idPrefix+makes[i].id,makes[i].percentage);
     }
 }
 

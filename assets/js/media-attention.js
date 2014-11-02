@@ -57,7 +57,12 @@ function mediaAttentionInit(){
 
 	var drawVolume = function(percentage){
 		highlighted = Math.ceil(percentage/20);
-		_container = $('<div>').addClass('volume');
+		_container = $('<div>').addClass('volume').hover(function(){
+			$(this).find('.active').addClass('hover');
+		},function(){
+
+			$(this).find('.active').removeClass('hover');
+		});
 		for(i=0;i<(5-highlighted);i++){
 			$("<div>").appendTo(_container);
 		}
